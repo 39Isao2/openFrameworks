@@ -8,10 +8,8 @@ Processing経験者の方は、頭にoFとつけると覚えやすいです。
 
 線
 ofDrawLine(50,50,100,100);
-// 線幅の設定は  ofSetLineWidth(4);
- 
 
-形状
+
 四角形
 ofDrawRectangle(100, 100, 100, 50);
 
@@ -25,21 +23,14 @@ ofDrawCircle(100, 100, 250);
 楕円
 ofDrawEllipse(100, 100, 50, 100);
 
-円の角の数 ofSetCircleResolution(64);
-円を滑らかにする
-
- 
-
 三角形
 ofDrawTriangle(100, 100, 150, 150, 50, 150);
 
-頂点座標XYの順
-
- 
 
 パスで図形を描画
-ofBeginShape(); //パス開始
-// ここに追加する
+
+ofBeginShape();
+    //ここに(x,y)のポイントを追加
     ofVertex(50, 120); 
     ofVertex(100, 90); 
     ofVertex(110, 60); 
@@ -49,61 +40,22 @@ ofBeginShape(); //パス開始
     ofVertex(200, 90); 
     ofVertex(140, 100); 
     ofVertex(130, 120); 
-    ofEndShape(); //パスを閉じる
-直線
+ofEndShape(); //パスを閉じる
+
+頂点
 ofVertex(100,100);
 
 曲線
 ofCurveVertex(100,100);
 
+```
+
+### 基本図形のオプション
+```
+線幅の設定  
+ofSetLineWidth(4);
  
-
-ofDrawEllipse を使って多角形を作る
-//ofApp.h
-
-void triangle(float x, float y, float width, float height);
-void rectangle(float x, float y, float width, float height);
-void pentagon(float x, float y, float width, float height);
-void hexagon(float x, float y, float width, float height);
-void heptagon(float x, float y, float width, float height);
-void octagon(float x, float y, float width, float height);
-
-//ofApp.cpp
-//--------------------------------------------------------------
-void ofApp::triangle(float x, float y, float width, float height){
-    ofSetCircleResolution(3);
-    ofDrawEllipse(x,y,width,height);
-}
-
-//--------------------------------------------------------------
-void ofApp::rectangle(float x, float y, float width, float height){
-    ofSetCircleResolution(4);
-    ofDrawEllipse(x,y,width,height);
-}
-
-//--------------------------------------------------------------
-void ofApp::pentagon(float x, float y, float width, float height){
-    ofSetCircleResolution(5);
-    ofDrawEllipse(x,y,width,height);
-}
-
-//--------------------------------------------------------------
-void ofApp::hexagon(float x, float y, float width, float height){
-    ofSetCircleResolution(6);
-    ofDrawEllipse(x,y,width,height);
-}
-
-//--------------------------------------------------------------
-void ofApp::heptagon(float x, float y, float width, float height){
-    ofSetCircleResolution(7);
-    ofDrawEllipse(x,y,width,height);
-}
-
-//--------------------------------------------------------------
-void ofApp::octagon(float x, float y, float width, float height){
-    ofSetCircleResolution(8);
-    ofDrawEllipse(x,y,width,height);
-}
-
-
+円の角の数(円を滑らかにする)
+ofSetCircleResolution(64);
+ 
 ```
