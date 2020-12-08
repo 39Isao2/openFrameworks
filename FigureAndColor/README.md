@@ -8,7 +8,6 @@ Processing経験者の方は、関数名の頭にoFとつけると覚えやす�
 // 線
 ofDrawLine(50,50,100,100);
 
-
 // 四角形
 ofDrawRectangle(100, 100, 100, 50);
 
@@ -22,25 +21,21 @@ ofDrawEllipse(100, 100, 50, 100);
 ofDrawTriangle(100, 100, 150, 150, 50, 150);
 
 
-// パスで図形を描画
-ofBeginShape();
-    // ここに(x,y)のポイントを追加
-    ofVertex(50, 120); 
-    ofVertex(100, 90); 
-    ofVertex(110, 60); 
-    ofVertex(80, 20); 
-    ofVertex(210, 60); 
-    ofVertex(160, 80); 
-    ofVertex(200, 90); 
-    ofVertex(140, 100); 
-    ofVertex(130, 120); 
-ofEndShape(); //パスを閉じる
-
 // 頂点
 ofVertex(100,100);
+//3Dの場合
+ofVertex(100,100,100); 
 
-// 曲線
-ofCurveVertex(100,100);
+
+// パスで図形を描画 (ひし形の例)
+ofBeginShape();
+    // ここに(x,y)のポイントを追加
+    ofVertex(150, 30);
+    ofVertex(210, 150);
+    ofVertex(150, 270);
+    ofVertex(90, 150);
+ofEndShape(); //パスを閉じる
+
 
 ```
 
