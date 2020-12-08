@@ -156,3 +156,48 @@ void ofApp::draw(){
 }
 ```
 
+
+## 上の画像のサンプルコード
+ofApp.cppのファイル
+```
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    //円の角の数(円を滑らかにする)
+    ofSetCircleResolution(64);
+    
+    // フレームレート60に
+    ofSetFrameRate(60);
+    
+    // 背景白
+    ofBackground(255, 255, 255);
+
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+
+}
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    // 線
+    ofSetLineWidth(3);
+    ofSetColor(0,0,0);
+    ofDrawLine(200, 50,300, 150);
+    
+    // 四角形
+    ofSetColor(0,255,0);
+    ofDrawRectangle(200, 200, 100, 100);
+
+    // 正円
+    ofSetColor(255,0,0);
+    ofDrawCircle(100, 100, 50);
+
+    // 三角形
+    ofSetColor(0,0,255);
+    ofDrawTriangle(100, 200, 150, 250, 50, 250);
+}
+```
