@@ -1,6 +1,6 @@
 # 図形の描画
 openFrameworksの基本図形です。<br>
-Processing経験者の方は、頭にoFとつけると覚えやすいです。
+Processing経験者の方は、関数名の頭にoFとつけると覚えやすいです。
 
 ## 基本図形
 
