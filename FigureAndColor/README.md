@@ -60,6 +60,7 @@ ofSetRectMode(OF_RECTMODE_CORNER);
 #  描画色について
 描画色、背景色、ブレンドモードの紹介です。
 
+<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/FigureAndColor/images/colors.png" width="500px">
 
 
 ```
