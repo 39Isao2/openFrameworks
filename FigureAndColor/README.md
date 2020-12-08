@@ -2,6 +2,8 @@
 openFrameworksの基本図形です。<br>
 Processing経験者の方は、関数名の頭にoFとつけると覚えやすいです。
 
+<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/FigureAndColor/images/sckech.png" width="400px">
+
 ## 基本図形
 
 ```
