@@ -93,22 +93,16 @@ void ofApp::setHSBA(int hue, int saturation, int brightness, int alpha){
 
 ```
 
-### color型変数
+## ブレンドモード
 ```
-// color型 変数
-ofColor c;
+ofEnableBlendMode(OF_BLENDMODE_ALPHA);
 
-// サンプルコード
-void ofApp::draw(){
-    // 変数の定義
-    ofColor redColor; 
-    // 色のセット
-    redColor.set(255, 0, 0); 
-    // 描画色のセット
-    ofSetColor(redColor); 
-    // 描画
-    ofDrawCircle(500,500,100); 
-}
+//    アルファ使用 OF_BLENDMODE_ALPHA
+//    加算 OF_BLENDMODE_ADD
+//    乗算 OF_BLENDMODE_MULTIPLY
+//    減算 OF_BLENDMODE_SUBTRACT
+//    スクリーン OF_BLENDMODE_SCREEN
+
 ```
 
 ## 背景色について
@@ -144,14 +138,21 @@ http://openframeworks.jp/documentation/graphics/ofGraphics.html#!show_ofBackgrou
 ```
 
 
-## ブレンドモード
+### color型変数
 ```
-ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+// color型 変数
+ofColor c;
 
-//    アルファ使用 OF_BLENDMODE_ALPHA
-//    加算 OF_BLENDMODE_ADD
-//    乗算 OF_BLENDMODE_MULTIPLY
-//    減算 OF_BLENDMODE_SUBTRACT
-//    スクリーン OF_BLENDMODE_SCREEN
-
+// サンプルコード
+void ofApp::draw(){
+    // 変数の定義
+    ofColor redColor; 
+    // 色のセット
+    redColor.set(255, 0, 0); 
+    // 描画色のセット
+    ofSetColor(redColor); 
+    // 描画
+    ofDrawCircle(500,500,100); 
+}
 ```
+
