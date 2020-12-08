@@ -54,3 +54,50 @@ ofSetRectMode(OF_RECTMODE_CENTER);
 ofSetRectMode(OF_RECTMODE_CORNER);
  
 ```
+
+# 色について
+描画色、背景色、ブレンドモードの紹介です。
+
+
+## 背景色
+```
+
+// R G B 指定
+//ofBackground(255, 255, 255);
+    
+// 16進数指定(HEX)
+//ofBackgroundHex(0xff0000);
+    
+// 背景グラデーション (draw内に記述する)
+
+void ofApp::draw(){
+    ofColor colorOne;
+    ofColor colorTwo;
+    colorOne.set (255, 0, 0);
+    colorTwo.set (0, 0, 255);
+
+    ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_CIRCULAR);
+}
+//  グラデーションの種類
+//  円形グラデーション OF_GRADIENT_CIRCULAR
+//  線形グラデーション OF_GRADIENT_LINEAR
+//  BARグラデーション OF_GRADIENT_BAR
+    
+    
+ofBackgroundGradient(リファレンスの説明)
+http://openframeworks.jp/documentation/graphics/ofGraphics.html#!show_ofBackgroundGradient
+    
+```
+
+
+## ブレンドモード
+```
+ofEnableBlendMode(OF_BLENDMODE_ALPHA);
+
+//    アルファ使用 OF_BLENDMODE_ALPHA
+//    加算 OF_BLENDMODE_ADD
+//    乗算 OF_BLENDMODE_MULTIPLY
+//    減算 OF_BLENDMODE_SUBTRACT
+//    スクリーン OF_BLENDMODE_SCREEN
+
+```
