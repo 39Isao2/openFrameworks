@@ -2,7 +2,7 @@
 openFrameworksの基本図形です。<br>
 Processing経験者の方は、関数名の頭にoFとつけると覚えやすいです。
 
-<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/FigureAndColor/images/sckech.png" width="300px">
+<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/FigureAndColor/images/sckech2.png" width="300px">
 
 ## 基本図形
 
@@ -191,7 +191,7 @@ void ofApp::draw(){
     ofDrawLine(200, 50,300, 150);
     
     // 四角形
-    ofSetColor(0,255,0);
+    ofSetColor(0,255,255);
     ofDrawRectangle(200, 200, 100, 100);
 
     // 正円
@@ -199,7 +199,7 @@ void ofApp::draw(){
     ofDrawCircle(100, 100, 50);
 
     // 三角形
-    ofSetColor(0,0,255);
+    ofSetColor(255,255,0);
     ofDrawTriangle(100, 200, 150, 250, 50, 250);
 }
 ```
