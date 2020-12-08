@@ -41,10 +41,10 @@ ofEndShape(); //パスを閉じる
 
 ### 基本図形のオプション
 ```
-線幅の設定  
+// 線幅の設定  
 ofSetLineWidth(4);
  
-円の角の数(円を滑らかにする)
+// 円の角の数(円を滑らかにする)
 ofSetCircleResolution(64);
 
 // 四角形をの起点を中心に 
@@ -55,11 +55,64 @@ ofSetRectMode(OF_RECTMODE_CORNER);
  
 ```
 
-# 色について
+#  描画色について
 描画色、背景色、ブレンドモードの紹介です。
 
 
-## 背景色
+
+```
+// R G B 指定
+ofSetColor(255, 255, 255);
+    
+// 16進数指定(HEX)
+ofSetHexColor(0xff0000);
+    
+// 塗り潰し
+ofFill();
+    
+// 塗りつぶさない
+ofNoFill();
+
+
+// HSBモード (0~255で指定する)
+ofColor c;
+c.setHsb(ofRandom(255),255,255);
+
+// 使いにくいので....
+ 
+// setHSBA関数 (ofSetColorみたいに使えます。)
+void ofApp::setHSBA(int hue, int saturation, int brightness, int alpha){
+    int setHue = (int)ofMap(hue, 0 , 360, 0, 255);
+    int setSaturation = (int)ofMap(saturation, 0 , 100, 0, 255);
+    int setBrightness = (int)ofMap(brightness, 0 , 100, 0, 255);
+    int setAlpha = (int)ofMap(alpha, 0, 100, 0, 255);
+    ofColor c;
+    c.setHsb(setHue, setSaturation, setBrightness, setAlpha);
+    return ofSetColor(c);
+}
+
+```
+
+### color型変数
+```
+// color型 変数
+ofColor c;
+
+// サンプルコード
+void ofApp::draw(){
+    // 変数の定義
+    ofColor redColor; 
+    // 色のセット
+    redColor.set(255, 0, 0); 
+    // 描画色のセット
+    ofSetColor(redColor); 
+    // 描画
+    ofDrawCircle(500,500,100); 
+}
+```
+
+## 背景色について
+描画色、背景色、ブレンドモードの紹介です。
 ```
 
 // R G B 指定
@@ -78,10 +131,11 @@ void ofApp::draw(){
 
     ofBackgroundGradient(colorOne, colorTwo, OF_GRADIENT_CIRCULAR);
 }
-//  グラデーションの種類
-//  円形グラデーション OF_GRADIENT_CIRCULAR
-//  線形グラデーション OF_GRADIENT_LINEAR
-//  BARグラデーション OF_GRADIENT_BAR
+・グラデーションの種類
+
+円形グラデーション OF_GRADIENT_CIRCULAR
+線形グラデーション OF_GRADIENT_LINEAR
+BARグラデーション OF_GRADIENT_BAR
     
     
 ofBackgroundGradient(リファレンスの説明)
