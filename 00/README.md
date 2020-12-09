@@ -14,7 +14,7 @@ Processingより後発でその影響を受けているが、<br>C++で開発す
 開発言語 : C++ 
 開発環境 : Xcode visual studio
 
-<img src="images/of.png" width="500px">
+<img src="images/of.png" width="600px">
 
 # 作品例
 
@@ -33,4 +33,11 @@ Arturo Castro, Kyle McDonald
 CREATIVE APPLICATIONS NETWORK – openFrameworks Tag 
 https://www.creativeapplications.net/tag/openframeworks/
 
-## ダウンロード、プロジェクトの設定方法
+## ダウンロード
+こちらからダウンロード 
+https://openframeworks.cc/ja/download/
+
+<img src="images/daunload.png" width="500px">
+
+## プロジェクト設定
+
