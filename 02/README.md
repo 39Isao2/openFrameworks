@@ -40,10 +40,10 @@ ofApp.h
 
 class ofApp : public ofBaseApp{
 
-	public:
-		void setup();
-		void update();
-		void draw();
+    public:
+	void setup();
+	void update();
+	void draw();
     
     static const int NUM = 1000;
     
