@@ -37,7 +37,9 @@ https://www.creativeapplications.net/tag/openframeworks/
 こちらからダウンロード 
 https://openframeworks.cc/ja/download/
 
-<img src="images/daunload.png" width="500px">
+<img src="images/daunload.png" width="600px">
 
 ## プロジェクト設定
 
+
+<img src="images/project_generato.png" width="700px">
