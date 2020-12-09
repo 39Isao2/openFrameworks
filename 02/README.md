@@ -122,8 +122,106 @@ void ofApp::draw(){
 ```
 
 
+### ベクトルを使って簡潔にコードを書いてみよう！
+ベクトルとは？ XとY、二つの座標を同時に格納するオブジェクト
+```
+ofVec2f pos; //ベクトル型変数の宣言
+pos.x = 10.0;
+pos.y = 20.0;
 
+// もしくは
+pos.set(10.0, 20.0);
 
+(ofVec3fもあります。)
+```
+
+### 先ほどのコードのベクトル版
+
+ofApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+
+class ofApp : public ofBaseApp{
+
+	public:
+		void setup();
+		void update();
+		void draw();
+    
+    static const int NUM = 1000;
+    
+    // ポジション定義
+    ofVec2f pos[NUM];
+    
+    //スピード定義
+    ofVec2f speed[NUM];
+    
+};
+
+```
+ofApp.cpp
+
+```
+
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    //円の角の数(円を滑らかにする)
+    ofSetCircleResolution(64);
+    
+    // フレームレート60に
+    ofSetFrameRate(60);
+    
+    // 背景黒
+    ofBackground(0);
+    
+    // アルファ使用可能に
+    ofEnableAlphaBlending();
+    
+    // 初期値セット
+    for (int i=0; i<NUM; i++) {
+        pos[i].x = ofRandom(0,ofGetWidth());
+        pos[i].y = ofRandom(0,ofGetHeight());
+        speed[i].x = ofRandom(-10, 10);
+        speed[i].y = ofRandom(-10, 10);
+    }
+
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+    
+    // updateで位置の更新などの計算
+    for (int i=0; i<NUM; i++) {
+        pos[i] += speed[i];
+        
+        if(pos[i].x > ofGetWidth() || pos[i].x < 0 ){
+            speed[i].x = speed[i].x * -1;
+        }
+        
+        if(pos[i].y > ofGetHeight() || pos[i].y < 0 ){
+            speed[i].y = speed[i].y * -1;
+        }
+    }
+
+}
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    // 描画色指定
+    ofSetColor(0,255,0,120);
+    
+    for (int i = 0; i<NUM; i++) {
+        ofDrawCircle(pos[i].x, pos[i].y , 10);
+    }
+    
+}
+
+```
 
 
 
