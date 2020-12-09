@@ -4,10 +4,10 @@
 http://openframeworks.cc/
 
 Zachary Lieberman, Theo Watson, Arturo Castroを中心に開発されたフレームワーク。 <br>
-Processingより後発でその影響を受けているが、<br>C++で開発するためより高速な処理ができる。<br>
-「糊（のり glue）」として例えられる。
+Processingより後発でその影響を受けているが、<br>C++で開発するためより高速な処理ができる。<br><br>
+
 グラフィックの描画の為のOpenGL、オーディオの入出力にはRtAudio、フォントの表示FreeTypeなど、様々なライブラリが
-もともと用意されていて、表現に集中できるようになっている。また多くのアドオン(拡張機能)もある。<br>
+もともと用意されていて、表現に集中できるようになっている。また多くのアドオン(拡張機能)もある。<br><br>
 
 **「糊（のり glue）」として例えられる。**
 
@@ -30,5 +30,7 @@ Arturo Castro, Kyle McDonald
 
 その他
 
-CREATIVE APPLICATIONS NETWORK – openFrameworks Tag
+CREATIVE APPLICATIONS NETWORK – openFrameworks Tag 
 https://www.creativeapplications.net/tag/openframeworks/
+
+## ダウンロード、プロジェクトの設定方法
