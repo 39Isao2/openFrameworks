@@ -21,6 +21,9 @@ Particle.h (クラス名の先頭は大文字が流儀)
 
 
 # シンプルなクラスの例
+
+<img src="images/class.png" width="700px">
+
 Particle.hpp
 ```
 #pragma once
