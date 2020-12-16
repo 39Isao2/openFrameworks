@@ -20,12 +20,116 @@ objectがメッセージを送りあう
 Particle.h (クラス名の先頭は大文字が流儀)
 
 
-# 最もシンプルなクラスの例
+# シンプルなクラスの例
+Particle.hpp
+```
+#pragma once
+
+#include "ofMain.h"
+
+
+class Particle{
+    
+public:
+    
+    // プロパティ
+    glm::vec2 pos; // 位置
+    ofColor col; // 色
+    float radius; // 半径
+    
+    // コンストラクタ
+    Particle();
+    
+    // メソッド
+    void setup();
+    void draw();
+    
+};
+
 ```
 
 
+Particle.cpp
+```
+
+#include "Particle.hpp"
+
+Particle::Particle(){
+    
+}
+
+
+void Particle::setup(){
+    // 位置
+    pos.x = ofRandom(300, 600);
+    pos.y = ofRandom(300, 600);
+    
+    // 半径
+    radius = ofRandom(10,50);
+    
+    // 色
+    col = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
+}
+
+void Particle::draw(){
+    ofSetColor(col);
+    ofDrawCircle(pos.x, pos.y, radius);
+}
+
 
 ```
+
+
+ofApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+#include "Particle.hpp"
+
+class ofApp : public ofBaseApp{
+
+    public:
+        void setup();
+        void update();
+        void draw();
+    
+        // Particleクラス2つインスタンス化
+        Particle p1;
+        Particle p2;
+};
+
+```
+
+ofApp.cpp
+```
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    p1.setup();
+    p2.setup();
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    
+    p1.draw();
+    p2.draw();
+
+}
+
+
+```
+
 
 
 
