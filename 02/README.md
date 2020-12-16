@@ -125,14 +125,14 @@ void ofApp::draw(){
 ### ベクトルを使って簡潔にコードを書いてみよう！
 ベクトルとは？ XとY、二つの座標を同時に格納するオブジェクト
 ```
-ofVec2f pos; //ベクトル型変数の宣言
+glm::vec2 pos; //ベクトル型変数の宣言
 pos.x = 10.0;
 pos.y = 20.0;
 
 // もしくは
 pos.set(10.0, 20.0);
 
-(ofVec3fもあります。)
+(glm::vec3 もあります。)
 ```
 
 ### 先ほどのコードのベクトル版
@@ -153,10 +153,10 @@ class ofApp : public ofBaseApp{
     static const int NUM = 1000;
     
     // ポジション定義
-    ofVec2f pos[NUM];
+    glm::vec2 pos[NUM];
     
     //スピード定義
-    ofVec2f speed[NUM];
+    glm::vec2 speed[NUM];
     
 };
 
