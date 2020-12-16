@@ -49,8 +49,8 @@ class ofApp : public ofBaseApp{
     
     
     //座標とスピードの動的配列
-    vector <ofVec3f> pos;
-    vector <ofVec3f> speed;
+    vector <glm::vec2> pos;
+    vector <glm::vec2> speed;
     
 };
 ```
@@ -97,7 +97,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
     //クリックした座標を保存する変数
-    ofVec2f clickPos;
+    glm::vec2 clickPos;
     clickPos.x = x;
     clickPos.y = y;
 
@@ -107,7 +107,7 @@ void ofApp::mousePressed(int x, int y, int button){
     // cout<< clickPos <<endl; //クリック座標をプリント
 
     //ランダムなスピードを生成
-    ofVec3f randomSpeed;
+    glm::vec2 randomSpeed;
     randomSpeed.x = ofRandom(-5,5);
     randomSpeed.y = ofRandom(-5,5);
 
