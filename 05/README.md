@@ -13,28 +13,23 @@
 http://www.isc.meiji.ac.jp/~re00079/EX2.2009/2009_24.html
 
 ```
-ここにコード
 
-int num = 10; // int型変数
-
-// 普通にint型numを出力
-cout << num << endl;   // 結果10
-   
+ // フレームレート表示
+ ofDrawBitmapString(ofToString(ofGetFrameRate()) + "fps", 20, 20);
 
 
-    int *p_num; // int型ポインタ変数
-    p_num = &num; // ポインタ変数p_numに変数numアドレスを代入
-    
-    int **pp_num; // int型ポインタ変数のポインタ
-    pp_num = &p_num; // ポインタ変数のポインタpp_numにポインタ変数p_numのアドレスを代入
-    
-    printf("int型変数numの値:%d\n", num);
-    printf("int型ポインタ変数p_num:%p\n", p_num);
-    printf("int型ポインタ変数のポインタpp_num:%p\n", pp_num);
-    
-    return 0;
+ int num = 10; // int型変数
 
+ // 普通にint型numを出力
+ cout << num << endl;   // 結果10
 
+ // 変数numのアドレスを出力 (頭に&をつける)
+ cout << &num << endl;   // 結果0x7ffeefbff3c8
+
+ // ポインタ変数の作成方法
+ int* pNum = &num;
+ cout << pNum << endl;   // 結果0x7ffeefbff3c8
+ 
 
 ```
 
