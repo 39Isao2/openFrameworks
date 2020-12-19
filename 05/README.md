@@ -198,6 +198,7 @@ void SineCircle::setHSBA(int hue, int saturation, int brightness, int alpha){
 
 
 
+```
 
 クラス名* 変数で宣言
 &で渡して、*で受け取る
