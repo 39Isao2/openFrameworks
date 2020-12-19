@@ -45,9 +45,160 @@ http://www.isc.meiji.ac.jp/~re00079/EX2.2009/2009_24.html
 ## クラスでポインタを使って高速化
 
 
-
+ofApp.hpp
 
 ```
+#pragma once
+
+#include "ofMain.h"
+#include "SineCircle.hpp" //クラスのインクルード
+
+class ofApp : public ofBaseApp{
+
+	public:
+		void setup();
+		void update();
+		void draw();
+  
+    //配列数
+    static const int NUM = 100;
+    
+    //インスタンス用ポインタ変数
+    SineCircle* sc[NUM][NUM];
+    
+    //座標
+    ofVec2f pos[NUM][NUM];
+    //色相
+    int hue[NUM][NUM];
+
+  
+};
+```
+
+ofApp.cpp
+```
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    ofBackground(0);
+    ofSetCircleResolution(64);
+    
+    for(int j=0; j<NUM; j++){
+        for(int i=0; i<NUM; i++){
+            pos[i][j].x = i * 20;
+            pos[i][j].y = j * 20;
+            hue[i][j] = (int)ofRandom(120,270); //キャスト
+            //インスタンスの生成
+            sc[i][j] = new SineCircle(&pos[i][j], &hue[i][j]);
+        }
+    }
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+
+    for(int j=0; j<NUM; j++){
+        for(int i=0; i<NUM; i++){
+            sc[i][j]->updata();
+        }
+    }
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+
+   // フレームレート表示
+   ofDrawBitmapString(ofToString(ofGetFrameRate()) + "fps", 20, 20);
+ 
+ 
+    for(int j=0; j<NUM; j++){
+        for(int i=0; i<NUM; i++){
+            sc[i][j]->draw();
+        }
+    }
+}
+
+```
+
+SineCircle.hpp
+
+```
+#pragma once
+#include "ofMain.h"
+
+
+//クラス宣言
+class SineCircle{
+    
+public:
+    
+    //コンストラクタ　最初に呼ばれる
+    SineCircle(ofVec2f* pPos, int* pHue);
+    
+    //メソッド
+    void updata();
+    void draw();
+    void setHSBA(int,int,int,int);
+    
+    //プロパティ
+    ofVec2f pos;
+    float diameter;
+    int speed;
+    int angle;
+    int hue;
+    
+};
+```
+
+SineCircle.cpp
+
+```
+
+#include "SineCircle.hpp"
+
+
+//コンストラクタ
+SineCircle::SineCircle(ofVec2f* pPos, int* pHue){
+    //初期座標
+    pos.x = pPos->x;
+    pos.y = pPos->y;
+    diameter = 0;
+    angle = (int)ofRandom(360);
+    speed = 2;
+    hue = *pHue;
+}
+
+//メソッド
+void SineCircle::updata(){
+    angle += speed;
+    if(angle>360){
+        angle = 0;
+    }
+    diameter = (sin(angle*DEG_TO_RAD)+1) /2;
+}
+
+void SineCircle::draw(){
+    setHSBA(hue,100,100,100);
+    ofDrawCircle(pos.x, pos.y, diameter*5);
+}
+
+void SineCircle::setHSBA(int hue, int saturation, int brightness, int alpha){
+    int setHue = (int)ofMap(hue, 0 , 360, 0, 255);
+    int setSaturation = (int)ofMap(saturation, 0 , 100, 0, 255);
+    int setBrightness = (int)ofMap(brightness, 0 , 100, 0, 255);
+    int setAlpha = (int)ofMap(alpha, 0, 100, 0, 255);
+    ofColor c;
+    c.setHsb(setHue, setSaturation, setBrightness, setAlpha);
+    return ofSetColor(c);
+}
+
+```
+
+
+
+
 クラス名* 変数で宣言
 &で渡して、*で受け取る
 *がきたら->でget！
