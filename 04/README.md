@@ -134,6 +134,32 @@ void ofApp::draw(){
 ```
 
 
+### コンストラクタに引数渡すver
+
+ofApp.cpp
+```
+p1.setup(float radius);
+
+```
+Particle.hpp
+```
+void setup(float radius);
+```
+Particle.cpp
+```
+void Particle::setup(float radius){
+    // 位置
+    pos.x = ofRandom(300, 600);
+    pos.y = ofRandom(300, 600);
+    
+    // 半径
+    radius = radius;
+    
+    // 色
+    col = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
+}
+
+```
 
 
 ### 動的配列のクラス版 (少し難しいかも)
