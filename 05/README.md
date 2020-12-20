@@ -43,7 +43,7 @@ http://www.isc.meiji.ac.jp/~re00079/EX2.2009/2009_24.html
 
 
 ## クラスでポインタを使って高速化
-
+大量表示の時にありがたみがわかると思います。
 
 ofApp.hpp
 
@@ -55,22 +55,22 @@ ofApp.hpp
 
 class ofApp : public ofBaseApp{
 
-	public:
-		void setup();
-		void update();
-		void draw();
+　　public:
+	void setup();
+	void update();
+	void draw();
   
     //配列数
-    static const int NUM = 100;
+    static const int NUM = 10000;
     
     //インスタンス用ポインタ変数
-    SineCircle* sc[NUM][NUM];
+    SineCircle* sc[NUM];
     
     //座標
-    ofVec2f pos[NUM][NUM];
+    glm::vec2 pos[NUM];
+    
     //色相
-    int hue[NUM][NUM];
-
+    int hue[NUM];
   
 };
 ```
@@ -85,39 +85,35 @@ void ofApp::setup(){
     ofBackground(0);
     ofSetCircleResolution(64);
     
-    for(int j=0; j<NUM; j++){
-        for(int i=0; i<NUM; i++){
-            pos[i][j].x = i * 20;
-            pos[i][j].y = j * 20;
-            hue[i][j] = (int)ofRandom(120,270); //キャスト
-            //インスタンスの生成
-            sc[i][j] = new SineCircle(&pos[i][j], &hue[i][j]);
-        }
+    
+    for(int i=0; i<NUM; i++){
+        pos[i].x = i * 20;
+	pos[i].y = j * 20;
+	hue[i] = (int)ofRandom(360); //キャスト
+
+	//インスタンスの生成
+	sc[i] = new SineCircle(&pos[i], &hue[i]);
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    for(int j=0; j<NUM; j++){
-        for(int i=0; i<NUM; i++){
-            sc[i][j]->updata();
-        }
+    for(int i=0; i<NUM; i++){
+        sc[i]->updata();
     }
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
    // フレームレート表示
-   ofDrawBitmapString(ofToString(ofGetFrameRate()) + "fps", 20, 20);
+   //ofDrawBitmapString(ofToString(ofGetFrameRate()) + "fps", 20, 20);
  
- 
-    for(int j=0; j<NUM; j++){
-        for(int i=0; i<NUM; i++){
-            sc[i][j]->draw();
-        }
-    }
+   for(int i=0; i<NUM; i++){
+       sc[i]->draw();
+   }
 }
 
 ```
@@ -135,7 +131,7 @@ class SineCircle{
 public:
     
     //コンストラクタ　最初に呼ばれる
-    SineCircle(ofVec2f* pPos, int* pHue);
+    SineCircle(glm::vec2* pPos, int* pHue);
     
     //メソッド
     void updata();
@@ -143,7 +139,7 @@ public:
     void setHSBA(int,int,int,int);
     
     //プロパティ
-    ofVec2f pos;
+    glm::vec2 pos;
     float diameter;
     int speed;
     int angle;
@@ -176,12 +172,12 @@ void SineCircle::updata(){
     if(angle>360){
         angle = 0;
     }
-    diameter = (sin(angle*DEG_TO_RAD)+1) /2;
+    diameter = sin(angle*DEG_TO_RAD) * ;
 }
 
 void SineCircle::draw(){
     setHSBA(hue,100,100,100);
-    ofDrawCircle(pos.x, pos.y, diameter*5);
+    ofDrawCircle(pos.x, pos.y, diameter);
 }
 
 void SineCircle::setHSBA(int hue, int saturation, int brightness, int alpha){
@@ -197,7 +193,7 @@ void SineCircle::setHSBA(int hue, int saturation, int brightness, int alpha){
 ```
 
 
-
+メモ
 ```
 
 クラス名* 変数で宣言
