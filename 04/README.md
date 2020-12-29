@@ -1,6 +1,119 @@
+# オブジェクト指向プログラミング(object oriented programming)
+
+多すぎる配列はコードが見にくいし見にくいし書くのが面倒！<br>
+コードの中で配列が全く出ない，<br>
+または１つか２つしか出ないコードにはOOPはそこまで光らない。<br>
+x座標，y座標，速度...などデータの種類が増えてきたときが出番！
+
+```
+例: 
+
+
+１、いままでの配列を使った書き方
+
+座標が100個
+色が100個
+サイズが100個
+
+for(100回){
+	座標[i]
+	色[i]
+	サイズ[i]
+	円を書く
+}
+
+
+２、クラス使った書き方
+(座標、色、サイズ)のデータを持っている円が100個
+for(100回){
+	円を書く
+}
+
+```
+
+## Processingで書いてみる (配列ver)
+```
+int NUM = 100;
+
+float[] x = new float[NUM];
+float[] y = new float[NUM];
+float[] vy = new float[NUM];         
+float[] size = new float[NUM];       
+color[] col = new color[NUM];       
+
+void setup(){
+  size(1000, 600);
+  noStroke();                   
+  for(int i=0; i<NUM; i++){
+    x[i] = random(width);
+    y[i] = random(height);
+    vy[i] = random(1,3);        
+    size[i] = random(5, 40);    
+    col[i] = color(random(255),random(255),random(255));
+  }
+}
+
+void draw(){
+  background(255);
+  for(int i=0; i<NUM; i++){
+    fill(col[i]);                                                  
+    ellipse(x[i], y[i], size[i], size[i]);
+    y[i] -= vy[i];               
+  }
+}
+
+```
+
+## classを使ったオブジェクト指向ver
+
+```
+
+int NUM = 100;
+
+class Circle{
+  float x;
+  float y;
+  float vy;
+  float size;
+  color col;
+}
+
+Circle[] c = new Circle[NUM];
+
+
+void setup(){
+  noStroke();
+  size(1000,600);
+  for(int i=0; i<NUM; i++){
+    c[i] = new Circle();
+    c[i].x = random(width);
+    c[i].y = random(height);
+    c[i].vy = random(1, 3);
+    c[i].size = random(5, 40);
+    c[i].col = color(random(255),random(255),random(255));
+  }
+}
+
+void draw(){
+  background(255);
+  for(int i=0; i<NUM; i++){
+    fill(c[i].col);
+    ellipse(c[i].x, c[i].y, c[i].size, c[i].size);
+    c[i].y -= c[i].vy;
+  }
+}
+
+
+```
+
+
+
+
 # クラスとインスタンス
 classとは設計図。インスタンスは実態。<br>
 全部of.App内で配列などで管理するとコードが見にくくなるのでオブジェクトごとに分けて管理します。<br>
+
+
 
 
 
