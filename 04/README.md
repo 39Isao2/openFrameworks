@@ -31,7 +31,11 @@ for(100回){
 
 ```
 
-## Processingで書いてみる (配列ver)
+# Processingで書いてみる
+
+<img src="images/oop.png" width="700px">
+
+## 配列ver
 ```
 int NUM = 100;
 
