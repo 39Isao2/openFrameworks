@@ -70,38 +70,44 @@ void draw(){
 
 ```
 
-int NUM = 100;
-
 class Circle{
   float x;
   float y;
   float vy;
   float size;
   color col;
+
+  Circle(){
+    x = random(width);       
+    y = random(height);
+    vy = random(1, 3);
+    size = random(5, 40);
+    col = color(random(255),random(255),random(255));
+  }
+  
+  void display(){
+    fill(col);
+    ellipse(x, y, size, size);
+    y -= vy;
+  }
 }
 
-Circle[] c = new Circle[NUM];
 
+int NUM = 100;
+Circle[] c = new Circle[NUM];
 
 void setup(){
   noStroke();
   size(1000,600);
   for(int i=0; i<NUM; i++){
     c[i] = new Circle();
-    c[i].x = random(width);
-    c[i].y = random(height);
-    c[i].vy = random(1, 3);
-    c[i].size = random(5, 40);
-    c[i].col = color(random(255),random(255),random(255));
   }
 }
 
 void draw(){
   background(255);
   for(int i=0; i<NUM; i++){
-    fill(c[i].col);
-    ellipse(c[i].x, c[i].y, c[i].size, c[i].size);
-    c[i].y -= c[i].vy;
+    c[i].display();
   }
 }
 
