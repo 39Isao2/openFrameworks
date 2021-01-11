@@ -198,19 +198,11 @@ void ofApp::draw(){
 
 ## ライト ofLight
 
+ライトを追加して陰影をつけます。
+
+<img src="images/light.png" width="600px">
+
 [ofLight](http://openframeworks.jp/documentation/gl/ofLight.html)
-
-
-#### PointLight 点光源
-全方位に発光する。電球に近い。 	
-
-#### SpotLight スポットライト光源
-1点に向けて光を当てる光源、スポットライトにより影が出来る。 
-
-#### AmbientLight 環境光源
-全体を明るくする。影はつかずオブジェクトの面は全て同じ色になり陰影は出ない。 	
-#### DirectionalLight 平行光源
-シーン全体に降り注ぐ光、太陽光に近い。
 
 
 ![](https://openframeworks.cc/documentation/gl/Lights_PointSpot.jpg)
@@ -219,34 +211,65 @@ void ofApp::draw(){
 
 
 
-
 ```
 //ofApp.h
 
-ofLight light; //ライト
+    ofEasyCam cam; // カメラ
+    ofBoxPrimitive box; // 立方体
+    ofSpherePrimitive sphere; // 球体
+    ofLight light; // ライト
+    
 
 ```
-
-
 
 ```
 //ofApp.cpp
 
 void ofApp::setup(){
 
-    // ライトを有効に
-    light.enable(); //ライトを有効
-    light.setPointLight(); //ポイントライトを配置
-    light.setPosition(0, 300, 500); //ライトの位置
+    ofSetFrameRate(60);
+    ofBackground(0);
+    ofEnableDepthTest(); //深度テストを有効に
     
+    // カメラ設定
+    cam.setFov(80.0f);
+    cam.setPosition(0,0, +500);
+    
+    // スポットライト設置
+    light.setSpotlight();
+    light.setPosition(0, 300, 500); //ライトの位置
+    light.enable();
    
 }
+
+
+void ofApp::draw(){
+    
+    ofEnableDepthTest();
+    
+    cam.begin();
+    
+        // 立方体
+        box.set(100); //幅、高さ、奥行き 100px
+        box.setPosition(0,0,0); // 位置指定
+        box.draw();
+        
+        // 球体を描画
+        sphere.set(100,8); //半径100px、分割数8
+        sphere.setPosition(200, 0, 0);
+        //sphere.draw();
+        sphere.drawWireframe();
+
+    cam.end();
+    
+}
+
+
 
 ```
 
 &nbsp;
 &nbsp;
-
 
 
 ## マテリアル ofMaterial
