@@ -311,10 +311,11 @@ void ofApp::draw(){
 ```
 //ofApp.h
 
-    ofBoxPrimitive box; //立方体
-    ofEasyCam cam; //カメラ
-    ofMaterial material;
-    ofLight light; //ライト
+    ofEasyCam cam; // カメラ
+    ofBoxPrimitive box; // 立方体
+    ofSpherePrimitive sphere; // 球体
+    ofLight light; // ライト
+    ofMaterial material; // マテリアル
 
 ```
 
@@ -324,7 +325,7 @@ void ofApp::draw(){
 //ofApp.cpp
 
 void ofApp::setup(){
-	ofBackground(0);
+    ofBackground(0);
     ofSetFrameRate(60);
     
     // カメラ設定
@@ -335,6 +336,7 @@ void ofApp::setup(){
     light.enable();
     light.setPosition(0,100,0);
     
+    // マテリアル
     material.setAmbientColor(ofColor(0,0,255)); //ベースの色
     material.setDiffuseColor(ofColor(0,255,0)); //光が当たる色
     material.setShininess(120); //鏡面反射程度
@@ -343,16 +345,23 @@ void ofApp::setup(){
 
 void ofApp::draw(){
 
+    // 深度テスト有効に
+    ofEnableDepthTest();
+    
     cam.begin();
-	
-    // boxPrimitiveの描画
-    ofSetColor(255, 0, 0); //カラー
-    box.set(200); //サイズ
-    box.setPosition(100,0,0); //座標
-    material.begin(); //マテリアル描画開始
-    box.draw(); //描画
-    material.end(); //マテリアル描画終了
-	
+    
+        box.set(100); //幅、高さ、奥行き 100px
+        box.setPosition(0,0,0); // 位置指定
+        material.begin(); //マテリアル描画開始
+        box.draw();
+        material.end(); //マテリアル描画開始
+        
+        // 球体を描画
+        sphere.set(100,8); //半径100px、分割数8
+        sphere.setPosition(200, 0, 0);
+        //sphere.draw();
+        sphere.drawWireframe();
+
     cam.end();
 }
 ```
