@@ -112,49 +112,44 @@ sphere.drawWireframe();
 
 
 
-## カメラ ofEasyCam
+## カメラ
+<img src="images/easycam.png" width="600px">
 
 [ofEasyCam](http://openframeworks.jp/documentation/3d/ofEasyCam.html)
 
 3D用の簡易カメラ。3Dでよく使われる中央起点に自動的に変わり、  
 マウス操作で位置を変えることができる。（ofTranslateは無効に）
 
+```
 
-#### カメラ開始
+// カメラ開始
+cam.begin();
 
-`cam.begin();`
+// カメラ終了
+cam.end();
 
-#### カメラ終了
+// カメラの視野角 fov (Field of View) 視野角 60~90度が多い
+cam.setFov(80.0f);
 
-`cam.end();`
+// カメラとの距離
+cam.setDistance()
 
-&nbsp;
+// カメラの位置
+cam.setPosition()
 
+// カメラが見る対象物を設定
+cam.setTarget()
 
-#### カメラの視野角
-
-fov (Field of View) 視野角 60~90度が多い
-
-`cam.setFov(80.0f);`
-
-#### カメラとの距離
-
-`cam.setDistance()`
-
-#### カメラの位置
-`cam.setPosition()`
-
-#### カメラが見る対象物を設定
-`cam.setTarget()`
-
-#### 深度テスト DEPTH TEST　
+// 深度テスト DEPTH TEST
 手前にあるものが奥にあるものを覆い隠すという現実世界の表現を 
 シミュレートするために必要。 
 無効のすると、新しく描画したオブジェクトがどんどん上書きされる。
-`ofEnableDepthTest()`
+
+ofEnableDepthTest()
 
 
-&nbsp;
+```
+
 
 ```
 //ofApp.h
