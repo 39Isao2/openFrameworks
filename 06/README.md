@@ -244,37 +244,27 @@ void ofApp::draw(){
 
 [ofMaterial](http://openframeworks.jp/documentation/gl/ofMaterial.html)
 
-マテリアルは物体の反射の色を表す
 
-#### Ambient 環境光
+ofSetColorで物体を塗りつぶす色を指定する他に、マテリアル(質感)を指定する方法があります。 
+光を受けて反射する際の4つの光の色を想定して、その4つの光の色の反射を足し合わせることでリアルな材質を再現しています。
 
-`setAmbientColor()`
+```
 
+Ambient 環境光
+setAmbientColor()
 光源からの環境光が物体に当たって拡散されたときの色
 
-
-#### Diffuse 拡散光
-
-`setDiffuseColor()`
-
+Diffuse 拡散光
+setDiffuseColor()
 光源から放射された光が、物体に当たって拡散（乱反射）されるときの色
 
-
-#### Specular 反射光
-
-`setSpecularColor()`
-
+Specular 反射光
+setSpecularColor()
 光源から放射された光が、物体の表面で反射したときの色｡ 
 
-
-#### Emissive 放射光
-
-`setEmissiveColor()`
-
+Emissive 放射光
+setEmissiveColor()
 物体が自ら放射している光の色
-
-&nbsp;
-
 
 ```
 //ofApp.h
