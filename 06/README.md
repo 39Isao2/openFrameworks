@@ -267,13 +267,16 @@ setEmissiveColor()
 物体が自ら放射している光の色
 
 ```
+
+```
+
 //ofApp.h
 
     ofBoxPrimitive box; //立方体
     ofEasyCam cam; //カメラ
     ofMaterial material;
     ofLight light; //ライト
-
+    
 ```
 
 
