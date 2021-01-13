@@ -347,3 +347,17 @@ void ofApp::gridHelper(int size, int step){
     }
 }
 ```
+
+# カメラワーク 
+## シーンの切り替え
+
+```
+カメラの注視点の設定
+
+// 注視点を原点(0,0,0)に向けます
+cam.setTarget(ofVec3f(0,0,0));
+
+// オブジェクトの位置に注視点を向けることもできます
+ofBoxPrimitive box
+cam.setTarget(box);
+```
