@@ -47,7 +47,7 @@ plane.setResolution(2, 2); // (as columns and rows)
 ## 3Dオブジェクトを描画してみる
 実際に3Dオブジェクトを描画してみましょう
 
-![](images/3dprimitive.png)
+<img src="images/3dprimitive.png" width="600px">
 
 ofApp.h
 
