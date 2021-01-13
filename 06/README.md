@@ -32,7 +32,7 @@
 
  [ofPlanePrimitive](http://openframeworks.jp/documentation/3d/ofPlanePrimitive.html) 
 
-<img src="images/plane.png" width="600px">
+<img src="images/palane.png" width="600px">
  
 
 ```
