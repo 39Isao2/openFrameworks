@@ -350,7 +350,7 @@ void ofApp::gridHelper(int size, int step){
 
 # カメラワーク 
 ## シーンの切り替え
-
+Aキーと
 ```
 カメラの注視点の設定
 
@@ -360,4 +360,65 @@ cam.setTarget(ofVec3f(0,0,0));
 // オブジェクトの位置に注視点を向けることもできます
 ofBoxPrimitive box
 cam.setTarget(box);
+```
+
+
+ofApp.h
+```
+    void keyPressed(int key);
+    
+    ofEasyCam cam; // カメラ
+    ofBoxPrimitive box; // 立方体
+    ofSpherePrimitive sphere; // 球体
+```
+
+ofApp.cpp
+```
+void ofApp::setup(){
+
+    ofBackground(0);
+    ofSetFrameRate(60);
+    
+    // カメラ設定
+    cam.setFov(80.0f);
+    cam.setPosition(0,+500,+1000);
+    
+    // 中心を視点に
+    cam.setTarget(ofVec3f(0,0,0));
+        
+}
+
+void ofApp::draw(){
+    
+   
+    cam.begin();
+
+        
+        // 立方体
+        box.set(100); //幅、高さ、奥行き 100px
+        ofSetColor(0,0,255); // 青色に
+        box.setPosition(500,0,0); // 位置指定
+        box.draw();
+        
+        // 球体を描画
+        sphere.set(100,8); //半径100px、分割数8
+        sphere.setPosition(-500, 0, 0);
+        ofSetColor(255); // 青色に
+        //sphere.draw();
+        sphere.drawWireframe();
+    
+    
+    cam.end();
+}
+
+void ofApp::keyPressed(int key){
+ 
+    if (key == 'a'){
+        cam.setTarget(box);
+    }
+    else if (key == 'b'){
+        cam.setTarget(sphere);
+    }
+}
+
 ```
