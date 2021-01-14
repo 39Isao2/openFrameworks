@@ -349,6 +349,9 @@ void ofApp::gridHelper(int size, int step){
 ```
 
 # カメラワーク 
+
+<img src="images/cameraworls.png" width="600px">
+
 ## シーンの切り替え
 Aキーと
 ```
