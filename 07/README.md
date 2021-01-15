@@ -1,9 +1,12 @@
 # カメラワーク
 
-<img src="images/cameraworls.png" width="600px">
 
 ## シーンの切り替え
-Aキーと
+
+<img src="images/cameraworls.png" width="600px">
+
+AキーとBキーを押した時にそれぞれ注視点を切り替えるプログラムを作ってみます。
+
 ```
 カメラの注視点の設定
 
