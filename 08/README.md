@@ -132,3 +132,50 @@ void ofApp::draw(){
 ```
 
 ## Primitiveオブジェクトのメッシュを取得していじってみる
+getMesh(); メソッドでPrimitiveオブジェクトからmesh情報を取得できます。
+
+ofApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+
+class ofApp : public ofBaseApp{
+
+    public:
+        void setup();
+        void update();
+        void draw();
+
+    ofEasyCam cam;
+    ofMesh mesh;
+    
+};
+
+```
+
+ofApp.cpp
+```
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    ofBoxPrimitive box;
+    box.set(200);
+    //box.setResolution(10);  //数値が大きいほど立方体を構成するメッシュの量が増える
+    
+    // ofBoxPrimitiveからメッシュの情報を取得
+    mesh = box.getMesh();
+    
+    
+    
+   //頂点の位置をランダムに取得して再セット
+   for (int i = 0; i < mesh.getVertices().size(); i++) {
+        glm::vec3 pos = mesh.getVertices()[i];
+        pos.x = pos.x * ofRandom(0.5,1.0);
+        pos.y = pos.y * ofRandom(0.5,1.0);
+        pos.z = pos.z * ofRandom(0.5,1.0);
+        mesh.setVertex(i, pos);
+    }
+    
+}
+```
