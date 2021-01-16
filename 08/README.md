@@ -1,6 +1,6 @@
 # メッシュ(ofMesh)について
 
-<img src="images/traiangle.png" width="400px">
+<img src="images/potigons.jpg" width="400px">
 
 3Dモデルは沢山の頂点を結んだポリゴンの集まりでできています。
 ofMeshはポリゴンの集まりを格納できるクラスです。 
@@ -131,4 +131,4 @@ void ofApp::draw(){
 
 ```
 
-## getMeshでプリミティブオブジェクトのメッシュを取得していじってみる
+## Primitiveオブジェクトのメッシュを取得していじってみる
