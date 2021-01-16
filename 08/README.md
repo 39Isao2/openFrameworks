@@ -1,6 +1,6 @@
 # メッシュ(ofMesh)について
 
-<img src="https://atl.recruit-tech.co.jp/wp-content/uploads/2014/03/3d_3DPrimitivesExample.jpg" width="400px">
+<img src="potigons.jpg" width="400px">
 
 3Dモデルは沢山の頂点を結んだポリゴンの集まりでできています。
 ofMeshはポリゴンの集まりを格納できるクラスです。 
