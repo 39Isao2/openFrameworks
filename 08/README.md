@@ -134,6 +134,9 @@ void ofApp::draw(){
 ## Primitiveオブジェクトのメッシュを取得していじってみる
 getMesh(); メソッドでPrimitiveオブジェクトからmesh情報を取得できます。
 
+<img src="images/meshBox.png" width="400px">
+
+
 ofApp.h
 ```
 #pragma once
