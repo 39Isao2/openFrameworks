@@ -182,3 +182,60 @@ void ofApp::setup(){
     
 }
 ```
+
+## planeオブジェクトのメッシュをいじる
+
+ofApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+
+class ofApp : public ofBaseApp{
+
+    public:
+        void setup();
+        void update();
+        void draw();
+    
+    ofEasyCam cam;
+    ofVboMesh mesh;
+};
+```
+
+ofApp.cpp
+```
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    ofPlanePrimitive plane;
+    plane.set(1000,1000,50,50);
+    
+    // planePrimitiveからメッシュの情報を取得
+    mesh = plane.getMesh();
+    
+    //頂点の座標を取得して再セット
+    for (int i = 0; i < mesh.getVertices().size(); i++) {
+         glm::vec3 pos = mesh.getVertices()[i];
+         // z座標のみランダムに再定義
+         pos.z = ofRandom(-50,50);
+         mesh.setVertex(i, pos);
+     }
+}
+//--------------------------------------------------------------
+void ofApp::update(){
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    cam.begin();
+    
+        mesh.drawWireframe();
+        
+    cam.end();
+}
+
+```
