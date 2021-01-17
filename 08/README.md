@@ -244,6 +244,8 @@ void ofApp::draw(){
 
 ## planeオブジェクトをsin波でいじる
 
+<img src="images/planesin.png" width="600px">
+
 odApp.h
 ```
 #pragma once
@@ -264,6 +266,7 @@ class ofApp : public ofBaseApp{
 ```
 
 ofApp.cpp
+
 
 ```
 
