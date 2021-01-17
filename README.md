@@ -12,4 +12,8 @@ openFrameworksのカリキュラム
 * [ポインタとアドレス](https://github.com/55Kaerukun/openFrameworks/tree/main/05/README.md)
 * [3Dの基本図形](https://github.com/55Kaerukun/openFrameworks/tree/main/06/README.md)
 * [3Dのカメラワーク](https://github.com/55Kaerukun/openFrameworks/tree/main/07/README.md)
+* [メッシュ(ofMesh)について](https://github.com/55Kaerukun/openFrameworks/tree/main/08/README.md)
+
+
+
 
