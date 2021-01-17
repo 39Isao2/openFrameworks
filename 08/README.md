@@ -185,6 +185,8 @@ void ofApp::setup(){
 
 ## planeオブジェクトのメッシュをいじる
 
+<img src="images/togeMesh.png" width="600px">
+
 ofApp.h
 ```
 #pragma once
