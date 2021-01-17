@@ -241,3 +241,72 @@ void ofApp::draw(){
 }
 
 ```
+
+## planeオブジェクトをsin波でいじる
+
+odApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+
+class ofApp : public ofBaseApp{
+
+    public:
+        void setup();
+        void update();
+        void draw();
+    
+    ofEasyCam cam;
+    ofVboMesh mesh;
+};
+
+```
+
+ofApp.cpp
+
+```
+
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    ofPlanePrimitive plane;
+    plane.set(1000,1000,100,100);
+    
+    // planePrimitiveからメッシュの情報を取得
+    mesh = plane.getMesh();
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+    
+    // 波の高さ
+    float scale = 100;
+    
+    //頂点の座標を取得して再セット
+    for (int i = 0; i < mesh.getVertices().size(); i++) {
+        glm::vec3 pos = mesh.getVertices()[i];
+         // z軸をsin波で変形する
+        float zx = sin(pos.x * 0.01 + ofGetElapsedTimef() ) * scale;
+        float zy = sin(pos.y * 0.01 + ofGetElapsedTimef() ) * scale;
+        pos.z = zx + zy;
+        mesh.setVertex(i, pos);
+     }
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+
+    cam.begin();
+    
+        mesh.drawWireframe();
+    
+    cam.end();
+}
+
+```
