@@ -3,13 +3,13 @@
 Addon(アドオン)とは、openFrameworksに機能を拡張するためのライブラリー<br>
 デフォルトで付属されているアドオン<br>
 
-ofx3DModelLoader : 3Dモデルを読み込み
-ofxOpenCv : OpenCVを活用したコンピュータビジョン(画像分割、領域結合、輪郭検出)
-ofxOsc : Open Sound Control（OSC）で外部のアプリケーションと通信
-ofxGui : プロジェクトにGUIに追加
-ofxKinect : Kinectからの情報を取得
-ofxXmlSettings : アプリケーションの設定を、XML形式で保存
-ofxSvg : SVG（Scalable Vector Graphics）を扱う などがある<br>
+- ofx3DModelLoader : 3Dモデルを読み込み
+- ofxOpenCv : OpenCVを活用したコンピュータビジョン(画像分割、領域結合、輪郭検出)
+- ofxOsc : Open Sound Control（OSC）で外部のアプリケーションと通信
+- ofxGui : プロジェクトにGUIに追加
+- ofxKinect : Kinectからの情報を取得
+- ofxXmlSettings : アプリケーションの設定を、XML形式で保存
+- ofxSvg : SVG（Scalable Vector Graphics）を扱う などがある<br>
 
 
 参考: ofxaddons.com
@@ -19,7 +19,7 @@ https://ofxaddons.com/categories  <br>
 ## Addonを使ったプロジェクの設定方法
 
 
-<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/07/images/add_addon.png" width="600px">
+<img src="images/add_addon.png" width="600px">
 
 
 ### ofxBloom
@@ -27,7 +27,7 @@ https://ofxaddons.com/categories  <br>
 Bloomは「咲く」という意味の言葉で、光の花が咲いているような表現ができます。<br>
 公式ページ:https://github.com/P-A-N/ofxBloom
 
-<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/07/images/bloom.png" width="600px">
+<img src="images/bloom.png" width="600px">
 
 <br>
 
