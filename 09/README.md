@@ -175,4 +175,83 @@ void ofApp::draw(){
 ```
 
 
-### ofxFaceTracker2
+## ofxFaceTracker2
+コンピュータビジョン (CV) と機械学習による顔のパーツを立体的にトラッキングする技術、<br>
+Face Tracking が活用されています。簡易版snow
+
+<br>
+
+<img src="images/face.png" width="400px">
+<img src="images/facepoints.jpg" width="400px">
+
+
+- ofxOpenCvとofxCvが必要
+- bin/data/ に shape_predictor_68_face_landmarks.dat 格納
+
+
+ofApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+#include "ofxFaceTracker2.h"
+
+class ofApp : public ofBaseApp{
+
+	public:
+		void setup();
+		void update();
+		void draw();
+
+        // faceTrackerのインスタンス
+        ofxFaceTracker2 tracker;
+    
+        // カメラ動画保存用
+        ofVideoGrabber grabber;
+		
+};
+
+```
+
+
+ofApp.cpp
+```
+
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    // カメラ動画保存用のセットアップ
+    grabber.setup(1280,720);
+        
+    // faceTrackerのセットアップ
+    tracker.setup();
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+    
+    // 動画フレームのアップデート
+    grabber.update();
+    
+    // フレームの内容が変化していたらfaceTrackerを更新
+    if(grabber.isFrameNew()){
+        tracker.update(grabber);
+    }
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+        // カメラ画像を表示
+        grabber.draw(0, 0);
+        
+        // 顔の輪郭線を表示
+        tracker.drawDebug();
+        
+        // 軸を表示
+        tracker.drawDebugPose();
+}
+```
