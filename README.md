@@ -1,6 +1,6 @@
 # openFrameworks
 openFrameworksのカリキュラム<br>
-<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/00/images/oflogo.png" width="100px">
+<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/00/images/oflogo.png" width="200px">
 
 ## 資料目次
 * [openFrameworksとは](https://github.com/55Kaerukun/openFrameworks/blob/main/00/README.md)
