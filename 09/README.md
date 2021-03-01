@@ -9,7 +9,7 @@ Addon(アドオン)とは、openFrameworksに機能を拡張するためのラ�
 - ofxGui : プロジェクトにGUIに追加
 - ofxKinect : Kinectからの情報を取得
 - ofxXmlSettings : アプリケーションの設定を、XML形式で保存
-- ofxSvg : SVG（Scalable Vector Graphics）を扱う などがある<br>
+- ofxSvg : SVG（Scalable Vector Graphics）を扱う などがある<br><br>
 
 
 参考: ofxaddons.com
@@ -19,8 +19,12 @@ https://ofxaddons.com/categories  <br>
 ## Addonを使ったプロジェクの設定方法
 
 
-<img src="images/add_addon.png" width="600px">
+<img src="images/add_addon.png" width="600px"><br>
+↓ <br>
+ofApp.hの先頭に（ #include "ofxGui.h" ）のように読み込む(詳しくはサンプルソースにて)<br>
 
+
+<br><br>
 
 ### ofxBloom
 描画した物体を簡単に発光させれるAddon。<br>
@@ -29,7 +33,7 @@ Bloomは「咲く」という意味の言葉で、光の花が咲いているよ
 
 <img src="images/bloom.png" width="600px">
 
-<br>
+<br><br>
 
 
 ofApp.h
