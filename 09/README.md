@@ -26,12 +26,12 @@ ofApp.hの先頭に（ #include "ofxGui.h" ）のように読み込む(詳しく
 
 <br><br>
 
-### ofxBloom
+## ofxBloom
 描画した物体を簡単に発光させれるAddon。<br>
 Bloomは「咲く」という意味の言葉で、光の花が咲いているような表現ができます。<br>
 公式ページ:https://github.com/P-A-N/ofxBloom
 
-<img src="images/bloom.png" width="600px">
+<img src="images/bloom.png" width="700px">
 
 <br><br>
 
