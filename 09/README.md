@@ -187,6 +187,7 @@ Face Tracking が活用されています。簡易版snow
 
 - ofxOpenCvとofxCvが必要
 - bin/data/ に shape_predictor_68_face_landmarks.dat 格納
+- https://sourceforge.net/projects/dclib/
 
 
 ofApp.h
