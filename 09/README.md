@@ -256,3 +256,22 @@ void ofApp::draw(){
         tracker.drawDebugPose();
 }
 ```
+
+
+顔の全箇所のpoint
+```
+    // Draw all tracker landmarks points
+    for (int i = 0; i < tracker.getInstances().size(); i++) {
+        
+        ofxFaceTracker2Instance instance = tracker.getInstances()[i];
+        
+        for (int j = 0; j < instance.getLandmarks().getImagePoints().size(); j++) {
+            
+            glm::vec2 pos = instance.getLandmarks().getImagePoints()[j];
+            ofSetColor(255);
+            ofDrawCircle(pos, 5);
+            ofSetColor(255, 0, 0);
+            ofDrawBitmapString(ofToString(i * tracker.getInstances().size() + j), pos.x, pos.y);
+        }
+    }
+```
