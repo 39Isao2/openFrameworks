@@ -258,7 +258,7 @@ void ofApp::draw(){
 ```
 
 
-顔の全箇所のpoint
+### 顔の全箇所のpoint
 ```
     // 複数人
     for (int i = 0; i < tracker.getInstances().size(); i++) {
@@ -279,7 +279,7 @@ void ofApp::draw(){
     }
 ```
 
-1箇所の点の場所を取得
+### 1箇所の点の場所を取得
 ```
     // 複数人の顔を検知
     for (int i = 0; i < tracker.getInstances().size(); i++) {
@@ -295,4 +295,62 @@ void ofApp::draw(){
         ofDrawCircle(pos, 100);
     }	
     
+```
+
+
+### 顔を描く
+```
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+        // カメラ画像を表示
+        grabber.draw(0, 0);
+    
+    
+    
+    
+    // Draw all tracker landmarks points
+     for (int i = 0; i < tracker.getInstances().size(); i++) {
+         
+        //Get Instance
+        ofxFaceTracker2Instance instance = tracker.getInstances()[i];
+         
+        // 顔の大きさ取得
+        ofRectangle faceRect = instance.getBoundingBox();
+         
+        //Left eye
+        glm::vec2 leftPos = instance.getLandmarks().getImageFeature(ofxFaceTracker2Landmarks::LEFT_EYE).getCentroid2D();
+         
+        //Right eye
+        glm::vec2 rightPos = instance.getLandmarks().getImageFeature(ofxFaceTracker2Landmarks::RIGHT_EYE).getCentroid2D();
+         
+        // 口
+        glm::vec2 mousePos = instance.getLandmarks().getImageFeature(ofxFaceTracker2Landmarks::OUTER_MOUTH).getCentroid2D();
+        
+
+        //Draw face parts
+         
+        // 白目
+        ofSetColor(255);
+        ofDrawCircle(leftPos, faceRect.getWidth() / 6.0);
+        ofDrawCircle(rightPos, faceRect.getWidth() / 6.0);
+         
+        // 黒目
+        ofSetColor(0);
+        ofDrawCircle(leftPos, faceRect.getWidth() / 12.0);
+        ofDrawCircle(rightPos, faceRect.getWidth() / 12.0);
+         
+        // 口
+        ofSetColor(255, 0, 0);
+        ofDrawCircle(mousePos.x,mousePos.y, 300, 100);
+        
+         
+         
+         
+         
+    }
+    
+    ofSetColor(255);
+}
+
 ```
