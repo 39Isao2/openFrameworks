@@ -260,14 +260,17 @@ void ofApp::draw(){
 
 顔の全箇所のpoint
 ```
-    // Draw all tracker landmarks points
+    // 複数人
     for (int i = 0; i < tracker.getInstances().size(); i++) {
-        
-        ofxFaceTracker2Instance instance = tracker.getInstances()[i];
-        
-        for (int j = 0; j < instance.getLandmarks().getImagePoints().size(); j++) {
+
+        // 一人の顔情報を取得
+        ofxFaceTracker2Instance face = tracker.getInstances()[i];
+
+        // 一人の顔の全てのポイントを描画
+        for (int j = 0; j < face.getLandmarks().getImagePoints().size(); j++) {
             
-            glm::vec2 pos = instance.getLandmarks().getImagePoints()[j];
+            // ポイントを取得
+            glm::vec2 pos = face.getLandmarks().getImagePoints()[j];
             ofSetColor(255);
             ofDrawCircle(pos, 5);
             ofSetColor(255, 0, 0);
