@@ -278,3 +278,19 @@ void ofApp::draw(){
         }
     }
 ```
+
+1箇所の点の場所を取得
+```
+    // 複数人の顔を検知
+    for (int i = 0; i < tracker.getInstances().size(); i++) {
+
+        // 一人の顔情報を取得
+        ofxFaceTracker2Instance face = tracker.getInstances()[i];
+        
+        // Landmark28番の箇所を取得
+        glm::vec2 pos = face.getLandmarks().getImagePoint(28);
+        
+        // 円を描く
+        ofSetColor(255);
+        ofDrawCircle(pos, 100);
+```
