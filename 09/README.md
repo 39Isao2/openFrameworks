@@ -293,4 +293,6 @@ void ofApp::draw(){
         // 円を描く
         ofSetColor(255);
         ofDrawCircle(pos, 100);
+    }	
+    
 ```
