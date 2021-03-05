@@ -1,4 +1,4 @@
-# OSC
+# ofxOSC
 
 ## OSCとは
 
@@ -168,3 +168,4 @@ void ofApp::draw(){
 
 ```
 
+# TouchDesignerとの連携
