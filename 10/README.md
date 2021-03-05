@@ -170,4 +170,4 @@ void ofApp::draw(){
 
 # TouchDesignerとの連携
 
-<img src="images/touch.png" width="600px">
+<img src="images/touch.png" width="800px">
