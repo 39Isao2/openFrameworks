@@ -11,7 +11,7 @@ openFrameworksのカリキュラム<br>
 * [クラスとインスタンス](https://github.com/55Kaerukun/openFrameworks/blob/main/04/README.md)
 * [ポインタとアドレス](https://github.com/55Kaerukun/openFrameworks/tree/main/05/README.md)
 * [Addonの使い方1 ofxBloom](https://github.com/55Kaerukun/openFrameworks/tree/main/09/README.md)
-* [OSCで連携](https://github.com/55Kaerukun/openFrameworks/tree/main/09/README.md)
+* [OSCで連携](https://github.com/55Kaerukun/openFrameworks/tree/main/10/README.md)
 * [3Dの基本図形](https://github.com/55Kaerukun/openFrameworks/tree/main/06/README.md)
 * [3Dのカメラワーク](https://github.com/55Kaerukun/openFrameworks/tree/main/07/README.md)
 * [メッシュ(ofMesh)について](https://github.com/55Kaerukun/openFrameworks/tree/main/08/README.md)
