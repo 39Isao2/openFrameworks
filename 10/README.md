@@ -54,7 +54,8 @@ class ofApp : public ofBaseApp{
 		void draw();
 
 		void mouseDragged(int x, int y, int button);
-    	// ポート番号
+		
+    	   // ポート番号
 	   static const int PORT = 7400;
 	   // Osc送信用のインスタンス変数
 	   ofxOscSender sender;
@@ -64,6 +65,9 @@ class ofApp : public ofBaseApp{
 
 ```
 //ofApp.opp
+
+#include "ofApp.h"
+
 void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(0);
@@ -71,7 +75,9 @@ void ofApp::setup(){
     // Osc送信のセットアップ
     sender.setup("127.0.0.1", PORT);
 }
-
+void ofApp::update(){
+	
+}
 void ofApp::draw(){
 	
 }
@@ -129,6 +135,8 @@ class ofApp : public ofBaseApp{
 
 ```
 //ofApp.opp
+#include "ofApp.h"
+
 void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(0);
