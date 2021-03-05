@@ -204,5 +204,44 @@ class ofApp : public ofBaseApp{
     };
 
 
+```
+
+```
+
+#include "ofApp.h"
+
+//ofApp.opp
+void ofApp::setup(){
+    ofSetFrameRate(60);
+    ofBackground(0);
+    
+    receiver.setup(PORT);
+}
+void ofApp::update(){
+    
+    
+    //OSCデータの受信待ち
+    while(receiver.hasWaitingMessages()){
+        
+        //受信用のインスタンス変数
+        ofxOscMessage msg;
+        receiver.getNextMessage(msg);
+        
+        
+        if(msg.getAddress()== "/noiseVal") {
+            receiveVal= msg.getArgAsFloat(0);
+        }
+        
+        
+        if(msg.getAddress()== "/col") {
+            colVal = msg.getArgAsFloat(0);
+        }
+    }
+}
+void ofApp::draw(){
+    ofSetColor(colVal1, colVal2, colVal3);
+    ofDrawCircle(ofGetWidth()/2, ofGetHeight()/2, receiveVal * 100);
+}
+
 
 ```
