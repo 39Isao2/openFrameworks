@@ -173,6 +173,36 @@ void ofApp::draw(){
 <img src="images/touch.png" width="800px">
 <img src="images/send.png" width="800px">
 
+
+ofApp.h
 ```
+// ofApp.h
+
+#pragma once
+
+#include "ofMain.h"
+#include "ofxOsc.h" //インクルード
+
+class ofApp : public ofBaseApp{
+
+    public:
+        void setup();
+        void update();
+        void draw();
+        // ポート番号
+        static const int PORT = 7400;
+    
+        //OSCのレシーバー
+        ofxOscReceiver receiver;
+        
+        // OSCで受信した値
+        float receiveVal;
+    
+        // oscで受信した色用の値
+        float colVal;
+    
+    };
+
+
 
 ```
