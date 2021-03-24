@@ -90,7 +90,7 @@ void ofApp::draw(){
     
     for(int i=0; i<pos.size(); i++){
         ofSetColor(255);
-        ofDrawCircle(pos[i].x, pos[i].y, pos[i].z, 2);
+        ofDrawCircle(pos[i].x, pos[i].y, 2);
     }
     
 }
@@ -131,10 +131,11 @@ void ofApp::mouseDragged(int x, int y, int button){
 void ofApp::draw(){
     
     ofNoFill();
+    ofSetLineWidth(5);
     ofBeginShape();
     for(int i=0; i<pos.size(); i++){
         ofSetColor(255);
-        //ofDrawCircle(pos[i].x, pos[i].y, pos[i].z, 2);
+        //ofDrawCircle(pos[i].x, pos[i].y, 2);
         ofCurveVertex(pos[i].x, pos[i].y);
     }
     ofEndShape(); 
