@@ -259,6 +259,7 @@ void ofApp::draw(){
 ```
 
 
+```
 ### コンストラクタに引数渡すver
 
 ofApp.cpp
@@ -283,6 +284,8 @@ void Particle::setup(float radius){
     // 色
     col = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
 }
+
+```
 
 ```
 
