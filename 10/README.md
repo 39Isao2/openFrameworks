@@ -153,8 +153,10 @@ void ofApp::draw(){
 ```
 
 # ofxOscを使ってTouchDesignerとデータの連携
-
+## データを受信
 <img src="images/touch.png" width="">
+
+## データを送信
 <img src="images/send.png" width="">
 
 
