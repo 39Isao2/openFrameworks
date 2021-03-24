@@ -156,10 +156,10 @@ SineCircle.cpp
 
 
 //コンストラクタ
-SineCircle::SineCircle(ofVec2f* pPos, int* pHue){
+SineCircle::SineCircle(glm::vec2* pPos, int* pHue){
     //初期座標
-    pos.x = pPos->x;
-    pos.y = pPos->y;
+    pos.x = ofRandom(0, ofGetWidth());
+    pos.y = ofRandom(0, ofGetHeight());
     diameter = 0;
     angle = (int)ofRandom(360);
     speed = 2;
@@ -172,7 +172,7 @@ void SineCircle::updata(){
     if(angle>360){
         angle = 0;
     }
-    diameter = sin(angle*DEG_TO_RAD) * ;
+    diameter = sin(angle*DEG_TO_RAD) * 100;
 }
 
 void SineCircle::draw(){
