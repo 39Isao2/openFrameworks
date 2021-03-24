@@ -6,7 +6,7 @@
 
 
 
-<img src="https://raw.githubusercontent.com/55Kaerukun/JavaScript/master/images/threeJS.png" width="600px">
+<!--<img src="https://raw.githubusercontent.com/55Kaerukun/JavaScript/master/images/threeJS.png" width="600px">-->
 
 ## 3Dの基本図形 of3dPrimitive 
 
