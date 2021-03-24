@@ -7,37 +7,22 @@ OpenSound Control（OSC）とは、電子楽器（特にシンセサイザー）
 
 対応アプリケーションは多数あり、リアルタイムに同期できる。
 
-![](images/osc.png)
-
-
 &nbsp;
 
 ## OSCの設定
 
 #### ネットワークアドレスの確認
 
-![](images/ipadress.png)
-
-&nbsp;
+<img src="images/ipadress.png" width="400px">
 
 
-## ofxOsc
 
-addonのofxOscを追加
-
-![](images/addon_osc.png)
+## ofxOscの使い方
 
 
-&nbsp;
 
-## OSCの送受信
-
-### OSCの送信
-
-* IPを指定 ローカル: `127.0.0.1`
-* ポート番号を指定
-* アドレス `/trigger/xxx/` を使うことで複数の値を送ることができる
-
+### OSCの送信側のコード
+IPアドレス、ポート番号、アドレスの指定が必要 <br>
 ```
 // ofApp.h
 
@@ -101,10 +86,9 @@ void ofApp::mouseDragged(int x, int y, int button){
 &nbsp;
 
 
-### OSCの受信
+### OSCの受信側のコード
 
-* ポート番号を指定
-* 送信側と同じ識別子 `/trigger/xxx/` を使うことで受け取ることができる
+同じポート番号を指定、送信側と同じ識別子 `/trigger/xxx/` を記述でデータを受け取る
 
 ```
 // ofApp.h
@@ -168,7 +152,7 @@ void ofApp::draw(){
 
 ```
 
-# TouchDesignerとの連携
+# ofxOscを使ってTouchDesignerとデータの連携
 
 <img src="images/touch.png" width="">
 <img src="images/send.png" width="">
@@ -197,9 +181,6 @@ class ofApp : public ofBaseApp{
         
         // OSCで受信した値
         float receiveVal;
-    
-        // oscで受信した色用の値
-        float colVal;
     
     };
 
@@ -232,14 +213,11 @@ void ofApp::update(){
             receiveVal= msg.getArgAsFloat(0);
         }
         
-        
-        if(msg.getAddress()== "/col") {
-            colVal = msg.getArgAsFloat(0);
-        }
     }
+    
 }
 void ofApp::draw(){
-    ofSetColor(colVal1, colVal2, colVal3);
+    ofSetColor(255);
     ofDrawCircle(ofGetWidth()/2, ofGetHeight()/2, receiveVal * 100);
 }
 
