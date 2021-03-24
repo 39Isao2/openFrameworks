@@ -56,10 +56,10 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     
     //頂点の座標を指定2
-    mesh.addVertex(ofVec3f(100,100,0));
-    mesh.addVertex(ofVec3f(100,200,0));
-    mesh.addVertex(ofVec3f(200,200,0));
-    mesh.addVertex(ofVec3f(200,100,0));
+    mesh.addVertex(glm::vec3(100,100,0));
+    mesh.addVertex(glm::vec3(100,200,0));
+    mesh.addVertex(glm::vec3(200,200,0));
+    mesh.addVertex(glm::vec3(200,100,0));
 }
 
 //--------------------------------------------------------------
@@ -99,10 +99,10 @@ void ofApp::setup(){
     ofBackground(255);
     
     //頂点の座標を指定
-    mesh.addVertex(ofVec3f(100,100,0));
-    mesh.addVertex(ofVec3f(100,200,0));
-    mesh.addVertex(ofVec3f(200,200,0));
-    mesh.addVertex(ofVec3f(200,100,0));
+    mesh.addVertex(glm::vec3(100,100,0));
+    mesh.addVertex(glm::vec3(100,200,0));
+    mesh.addVertex(glm::vec3(200,200,0));
+    mesh.addVertex(glm::vec3(200,100,0));
     
     //座標のつなぎ順を指定して面にする
     // １個目の三角形
