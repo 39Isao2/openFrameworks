@@ -156,6 +156,69 @@ void ofApp::draw(){
 ## データを受信
 <img src="images/touch.png" width="">
 
+ofApp.h
+```
+// ofApp.h
+
+#pragma once
+
+#include "ofMain.h"
+#include "ofxOsc.h" //インクルード
+
+class ofApp : public ofBaseApp{
+
+    public:
+        void setup();
+        void update();
+        void draw();
+        void mouseDragged(int x, int y, int button);
+    
+           // ポート番号
+           static const int PORT = 7400;
+        
+           // Osc送信用のインスタンス変数
+           ofxOscSender sender;
+};
+
+```
+
+ofApp.cpp
+```
+#include "ofApp.h"
+
+//ofApp.opp
+void ofApp::setup(){
+    ofSetFrameRate(60);
+    ofBackground(0);
+    
+    // Osc送信のセットアップ
+    sender.setup("10.1.155.34", PORT);
+}
+void ofApp::update(){
+
+
+}
+void ofApp::draw(){
+    
+}
+void ofApp::mouseDragged(int x, int y, int button){
+    // OSCで送信するデータの作成
+    ofxOscMessage msg;
+    
+    // アドレスを設定
+    msg.setAddress("/mouse");
+    
+    // ドラッグしたX座標
+    msg.addIntArg(x);
+    // ドラッグしたY座標
+    msg.addIntArg(y);
+    
+    // OSC送信
+    sender.sendMessage(msg);
+}
+
+```
+
 ## データを送信
 <img src="images/send.png" width="">
 
