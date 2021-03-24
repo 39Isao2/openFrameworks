@@ -32,8 +32,10 @@ ofApp.cpp
 ```
 void ofApp::setup(){
 
-    ofBackground(0);
+ 
     ofSetFrameRate(60);
+    ofEnableDepthTest(); //深度テストを有効に
+    
     
     // カメラ設定
     cam.setFov(80.0f);
@@ -41,6 +43,8 @@ void ofApp::setup(){
     
     // 中心を視点に
     cam.setTarget(ofVec3f(0,0,0));
+    
+    ofBackground(0);
         
 }
 
