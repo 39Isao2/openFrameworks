@@ -75,7 +75,7 @@ void ofApp::draw(){
 
 ### oFで作ったパーティクルをTouchに送って発光させてみる。
 
-<img src="images/ofParticle.png" width="500px">
+<img src="images/ofParticle.png" width="700px">
 こちらを目指しましょう。<br>
 oFのコードはコピペでいいので(先程のにパーティクルのコードを足しただけ)<br>
 Touch側をいじって見ましょう。
