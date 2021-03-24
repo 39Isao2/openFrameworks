@@ -176,8 +176,6 @@ void ofApp::draw(){
         //ヘルパー
         ofDrawAxis(1000);
         ofSetColor(0);
-        gridHelper(3000, 100);
-    
     
     cam.end();
 }
@@ -193,15 +191,6 @@ void ofApp::keyPressed(int key){
        scene = 2;
        //targetCamPos.set(ofVec3f(-100,100,0));
        targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
-    }
-}
-
-
-void ofApp::gridHelper(int size, int step){
-    ofSetColor(255,127);
-    for (int i=0; i<size; i+=step) {
-        ofDrawLine(i-size/2, 0, size/2, i-size/2, 0, -size/2);
-        ofDrawLine(-size/2, 0, i-size/2, size/2, 0, i-size/2);
     }
 }
 
@@ -355,10 +344,9 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    //起点をずらす
+
     ofTranslate(ofGetWidth()/2,ofGetHeight()/2,0);
     cam.begin();
-    gridHelper(1000, 10);
     ofDrawAxis(1000);
     
     //Y軸回転
@@ -382,15 +370,6 @@ void ofApp::draw(){
         }
     }
     cam.end();
-}
-
-//--------------------------------------------------------------
-void ofApp::gridHelper(int size, int step){
-    ofSetColor(0,20);
-    for (int i=0; i<size; i+=step) {
-        ofDrawLine(i-size/2, 0, size/2, i-size/2, 0, -size/2);
-        ofDrawLine(-size/2, 0, i-size/2, size/2, 0, i-size/2);
-    }
 }
 
 ```
