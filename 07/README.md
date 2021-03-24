@@ -360,8 +360,7 @@ void ofApp::draw(){
         for(int i=0; i<NUM; i++){
             float d = ofDist(point[j]->pos.x, point[j]->pos.y, point[j]->pos.z, point[i]->pos.x, point[i]->pos.y, point[i]->pos.z);
             if(d < 40){
-                int c = (int) ofMap(d,0,40,10,200);
-                ofSetColor(c);
+                ofSetColor(0,0,0,100);
                 ofDrawLine(point[j]->pos.x, point[j]->pos.y, point[j]->pos.z, point[i]->pos.x, point[i]->pos.y, point[i]->pos.z);
             }
         }
