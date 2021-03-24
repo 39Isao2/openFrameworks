@@ -289,8 +289,6 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-        void gridHelper(int size, int step);
-
     //カメラ
     ofEasyCam cam;
     
@@ -318,7 +316,6 @@ void ofApp::setup(){
     ofEnableDepthTest();//深度
     //カメラの設定
     cam.setFov(80.0f);
-//    cam.setPosition(0, 20, 100);
     cam.setDistance(500);
     
     
