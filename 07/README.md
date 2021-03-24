@@ -311,18 +311,22 @@ ofApp.cpp
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofBackground(255);
+    
     ofSetFrameRate(60);
+    ofBackground(0);
+    
     ofEnableDepthTest();//深度
     //カメラの設定
     cam.setFov(80.0f);
     cam.setDistance(500);
     
     
+    
     for(int i=0; i<NUM; i++){
         //インスタンスの宣言
         point[i] = new PointSphere();
     }
+    
 }
 
 //--------------------------------------------------------------
@@ -360,7 +364,7 @@ void ofApp::draw(){
         for(int i=0; i<NUM; i++){
             float d = ofDist(point[j]->pos.x, point[j]->pos.y, point[j]->pos.z, point[i]->pos.x, point[i]->pos.y, point[i]->pos.z);
             if(d < 40){
-                ofSetColor(0,0,0,100);
+                ofSetColor(255,120);
                 ofDrawLine(point[j]->pos.x, point[j]->pos.y, point[j]->pos.z, point[i]->pos.x, point[i]->pos.y, point[i]->pos.z);
             }
         }
