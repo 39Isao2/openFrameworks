@@ -75,7 +75,7 @@ void ofApp::draw(){
 
 ### oFで作ったパーティクルをTouchに送って発光させてみる。
 
-<img src="images/ofParticle.png" width="700px">
+<img src="images/ofParticle.png" width="800px">
 こちらを目指しましょう。<br>
 oFのコードはコピペでいいので(先程のにパーティクルのコードを足しただけ)<br>
 Touch側をいじって見ましょう。
@@ -189,7 +189,7 @@ void ofApp::draw(){
 
 ```
 
-<img src="images/syphon_t.png" width="500px">
+<img src="images/syphon_t.png" width="800px">
 
 「Syphon Spout In」TOPで受け取って、「blur TOP」 や 「Level TOP」などを
 使って発光させて見ましょう！ 
