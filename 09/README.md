@@ -21,12 +21,15 @@ https://ofxaddons.com/categories  <br>
 
 <img src="images/add_addon.png" width="600px"><br>
 ↓ <br>
-ofApp.hの先頭に（ #include "ofxGui.h" ）のように読み込む(詳しくはサンプルソースにて)<br>
+ofApp.hの先頭に（ #include "ofxGui.h" ）のように読み込む
+<br>
+(詳しくはサンプルソースにて)<br>
 
 
 <br><br>
 
-## ofxBloom
+
+# ofxBloom
 描画した物体を簡単に発光させれるAddon。<br>
 Bloomは「咲く」という意味の言葉で、光の花が咲いているような表現ができます。<br>
 公式ページ:https://github.com/P-A-N/ofxBloom
