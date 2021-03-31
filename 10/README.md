@@ -13,8 +13,9 @@ OpenSound Control（OSC）とは、電子楽器（特にシンセサイザー）
 
 #### ネットワークアドレスの確認
 
+<!--
 <img src="images/ipadress.png" width="400px">
-
+-->
 
 
 ## ofxOscの使い方
