@@ -204,3 +204,6 @@ void ofApp::draw(){
     ofDrawTriangle(100, 200, 150, 250, 50, 250);
 }
 ```
+
+・キャンバスサイズの変更方法 <br>
+https://openframeworks.cc/ja/learning/01_basics/how_to_set_the_dimensions_of_the_window/
