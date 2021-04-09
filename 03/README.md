@@ -128,7 +128,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 ### ofCurveVertexで線を引くver
 
-<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/03/img/vertaxLine.png" width="800px">
+<img src="https://github.com/55Kaerukun/openFrameworks/blob/main/03/img/vertaxLine.png" width="500px">
 
 
 ```
