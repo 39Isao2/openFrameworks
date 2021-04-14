@@ -124,7 +124,7 @@ void ofApp::draw(){
 ### ベクトルを使って簡潔にコードを書いてみよう！
 ベクトルとは？ XとY、二つの座標を同時に格納するオブジェクト
 
-<img src="vec.png" width="200px">
+<img src="vec.png" width="400px">
 
 ```
 glm::vec2 pos; //ベクトル型変数の宣言
