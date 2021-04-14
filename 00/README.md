@@ -33,7 +33,7 @@ Arturo Castro, Kyle McDonald
 CREATIVE APPLICATIONS NETWORK – openFrameworks Tag 
 https://www.creativeapplications.net/tag/openframeworks/
 
-## ダウンロード
+## セットアップ方法
 こちらからダウンロード 
 https://openframeworks.cc/ja/download/
 
