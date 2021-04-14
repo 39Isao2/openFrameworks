@@ -138,7 +138,7 @@ void ofApp::draw(){
     ofSetLineWidth(5);
     ofBeginShape();
     for(int i=0; i<pos.size(); i++){
-        ofSetColor(255);
+        ofSetColor(255,120);
         //ofDrawCircle(pos[i].x, pos[i].y, 2);
         ofCurveVertex(pos[i].x, pos[i].y);
     }
