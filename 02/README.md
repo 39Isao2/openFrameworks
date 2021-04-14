@@ -10,11 +10,8 @@
 ```
 例:int型配列
 
-// 一つのクラスに対して1つだけ存在し、しかも書き換えができない変数
-static const int NUM = ５;
-
 // 配列の作成 
-int NumArr[NUM];
+int NumArr[5];
 
 // 配列myArrにデータを保存
 NumArr[0] = 10;
@@ -45,6 +42,7 @@ class ofApp : public ofBaseApp{
 	void update();
 	void draw();
     
+    // 個数の宣言
     static const int NUM = 1000;
     
     // ポジション定義
@@ -80,8 +78,8 @@ void ofApp::setup(){
     
     // 初期値セット
     for (int i=0; i<NUM; i++) {
-        posX[i] = ofRandom(0,ofGetWidth()); // ofGetWidth 画面横幅取得
-        posY[i] = ofRandom(0,ofGetHeight()); // ofGetHeight 画面縦幅取得
+        posX[i] = ofRandom(0,ofGetWidth()); // ofGetWidth() 画面横幅取得
+        posY[i] = ofRandom(0,ofGetHeight()); // ofGetHeight() 画面縦幅取得
         speedX[i] = ofRandom(-10, 10);
         speedY[i] = ofRandom(-10, 10);
     }
