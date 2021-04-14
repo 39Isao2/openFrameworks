@@ -23,13 +23,13 @@ Processingより後発でその影響を受けているが、<br>C++で開発す
 
 # 作品例
 
-NightLights / YesYesNo
-http://www.yesyesno.com/night-lights
+NightLights / YesYesNo <br>
+http://www.yesyesno.com/night-lights 
 <br><br>
 <img src="images/NightLights.png" width="500px"><br><br>
 
 traders by Rhizomatiks ( realtime visualization of Tokyo Stock Exchange )<br>
-https://www.youtube.com/watch?v=CkmKVVzgdNE
+https://www.youtube.com/watch?v=9E9vRNgxTLw
 <br><br>
 <img src="images/traders.png" width="500px"><br><br>
 
