@@ -17,18 +17,21 @@ Processingより後発でその影響を受けているが、<br>C++で開発す
 開発環境 : Xcode visual studio
 
 <img src="images/of.png" width="600px">
+<br>
+<br>
+<br>
 
 # 作品例
 
 NightLights / YesYesNo
 http://www.yesyesno.com/night-lights
-<br>
-<img src="images/NightLights.png" width="500px">
+<br><br>
+<img src="images/NightLights.png" width="500px"><br><br>
 
-traders by Rhizomatiks ( realtime visualization of Tokyo Stock Exchange )
+traders by Rhizomatiks ( realtime visualization of Tokyo Stock Exchange )<br>
 https://www.youtube.com/watch?v=CkmKVVzgdNE
-<br>
-<img src="images/traders.png" width="500px">
+<br><br>
+<img src="images/traders.png" width="500px"><br><br>
 
 
 Canness Lions International Festival of Creativity 
