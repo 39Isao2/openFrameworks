@@ -144,12 +144,12 @@ ofApp.h
 
 class ofApp : public ofBaseApp{
 
-	public:
-		void setup();
-		void update();
-		void draw();
+    public:
+	void setup();
+	void update();
+	void draw();
     
-    static const int NUM = 1000;
+    static const int NUM = 2000;
     
     // ポジション定義
     glm::vec2 pos[NUM];
@@ -215,7 +215,7 @@ void ofApp::draw(){
     ofSetColor(0,255,0,120);
     
     for (int i = 0; i<NUM; i++) {
-        ofDrawCircle(pos[i].x, pos[i].y , 10);
+        ofDrawCircle(pos[i].x, pos[i].y , 5);
     }
     
 }
