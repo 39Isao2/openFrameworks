@@ -41,5 +41,7 @@ https://openframeworks.cc/ja/download/
 
 ## プロジェクト設定
 
+１、ファイルをダウンロード後、解凍し、projectGeneratorをアプリケーションフォルダに移動します。
+<img src="images/setup_first.png" width="700px">
 
-<img src="images/project_generato.png" width="700px">
+２、projectGeneratorを起動すると、このような画面が出ると思います。
