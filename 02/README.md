@@ -43,7 +43,7 @@ class ofApp : public ofBaseApp{
 	void draw();
     
     // 個数の宣言
-    static const int NUM = 1000;
+    static const int NUM = 2000;
     
     // ポジション定義
     float posX[NUM];
@@ -112,7 +112,8 @@ void ofApp::draw(){
     
     // 描画
     for (int i = 0; i<NUM; i++) {
-        ofDrawCircle(posX[i], posY[i], 10);
+        ofSetColor(ofRandom(255),ofRandom(255),ofRandom(255));
+        ofDrawCircle(posX[i], posY[i], 3);
     }
     
 }
