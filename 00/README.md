@@ -4,9 +4,9 @@
 http://openframeworks.cc/
 
 Zachary Lieberman, Theo Watson, Arturo Castroを中心に開発されたフレームワーク。 <br>
-Processingより後発でその影響を受けているが、<br>C++で開発するためより高速な処理ができる。<br>
-スローガンは、詩を書くようにコードを書け（ポエティックコーディング）と<br>
-「DIY」（Do It Yourself）ではなく、「DIYO」（Do It With Others）みんなで作ろう。<br><br>
+Processingより後発でその影響を受けているが、<br>C++で開発するためより高速な処理ができる。<br><br>
+スローガンは、**詩を書くようにコードを書け（ポエティックコーディング）**と<br>
+**「DIY」（Do It Yourself）ではなく、「DIYO」（Do It With Others）みんなで作ろう。**<br><br>
 
 グラフィックの描画の為のOpenGL、オーディオの入出力にはRtAudio、フォントの表示FreeTypeなど、様々なライブラリが
 もともと用意されていて、表現に集中できるようになっている。また多くのアドオン(拡張機能)もある。<br><br>
