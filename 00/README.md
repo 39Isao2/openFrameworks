@@ -20,6 +20,17 @@ Processingより後発でその影響を受けているが、<br>C++で開発す
 
 # 作品例
 
+NightLights / YesYesNo
+http://www.yesyesno.com/night-lights
+<br>
+<img src="images/NightLights.png" width="500px">
+
+traders by Rhizomatiks ( realtime visualization of Tokyo Stock Exchange )
+https://www.youtube.com/watch?v=CkmKVVzgdNE
+<br>
+<img src="images/traders.png" width="500px">
+
+
 Canness Lions International Festival of Creativity 
 真鍋大度、Perfume <br>
 https://www.youtube.com/watch?v=gI0x5vA7fLo
@@ -27,12 +38,11 @@ https://www.youtube.com/watch?v=gI0x5vA7fLo
 
 <img src="images/pufume.png" width="500px">
 
-Faces 
-Arturo Castro, Kyle McDonald
+Faces / Arturo Castro, Kyle McDonald
 
 <img src="images/faces.jpg" width="500px">
 
 その他
-
+<br>
 CREATIVE APPLICATIONS NETWORK – openFrameworks Tag 
 https://www.creativeapplications.net/tag/openframeworks/
