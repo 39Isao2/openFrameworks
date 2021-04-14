@@ -123,6 +123,9 @@ void ofApp::draw(){
 
 ### ベクトルを使って簡潔にコードを書いてみよう！
 ベクトルとは？ XとY、二つの座標を同時に格納するオブジェクト
+
+<img src="vec.png" width="200px">
+
 ```
 glm::vec2 pos; //ベクトル型変数の宣言
 pos.x = 10.0;
@@ -222,42 +225,6 @@ void ofApp::draw(){
 
 ```
 
-
-
-
-
-
-## 動的配列
-最初から数を決めず、動的に要素数を増減できる配列
-```
-// 定義方法
-vector <データ型> 配列の名前;
-
-// 例
-vector<int> vec{ 1, 2, 3 };
-for (int i=0; i<vec.size(); i++) {
-    cout << vec[i] << endl;
-}
-
-//動的配列の末尾に値を追加する
-vec.push_back(追加する値);
-
-//動的配列の末尾から値を削除する
-vec.pop_back();
-
-//動的配列の途中に値を追加する
-vec.insert(イテレータ,値);
-
-//動的配列の途中に値を削除する
-vec.erase(vec.begin() + 2);
-
-//動的配列の数を調べる
-vec.size();
-
-//参考リンク
-Introduction to vectors
-https://openframeworks.cc/ofBook/chapters/stl_vector.html
-```
 
 
 
