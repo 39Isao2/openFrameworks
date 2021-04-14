@@ -135,7 +135,7 @@ void ofApp::mouseDragged(int x, int y, int button){
 void ofApp::draw(){
     
     ofNoFill();
-    ofSetLineWidth(5);
+    ofSetLineWidth(3);
     ofBeginShape();
     for(int i=0; i<pos.size(); i++){
         ofSetColor(255,120);
