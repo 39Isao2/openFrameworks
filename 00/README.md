@@ -45,6 +45,6 @@ https://openframeworks.cc/ja/download/
 <img src="images/setup_first.png" width="600px">
 <br><br>
 ２、projectGeneratorを起動すると、このような画面が出ると思います。<br><br>
-<img src="images/error.png" width="300px">
+<img src="images/error.png" width="300px"><br><br>
 3、虫眼鏡アイコンをクリックして、ルートパス(of_v0.11.2_osx_release フォルダ)の場所を指定します。
 <br><br>
