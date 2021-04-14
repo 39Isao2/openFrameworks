@@ -46,5 +46,5 @@ https://openframeworks.cc/ja/download/
 <br><br>
 ２、projectGeneratorを起動すると、このような画面が出ると思います。<br><br>
 <img src="images/error.png" width="300px">
-3、虫眼鏡アイコンをクリックして、ルートパス(of_v0.11.2_osx_release フォルダ)の場所を指定します<br><br>
+3、虫眼鏡アイコンをクリックして、ルートパス(of_v0.11.2_osx_release フォルダ)の場所を指定します。
 <br><br>
