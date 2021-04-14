@@ -328,22 +328,3 @@ void ofApp::draw(){
 
 #### XYZ回転
 `ofDrawRotationAxes(200,1,60);`
-
-
-#### グリッド（カスタム）
-
-```
-//ofApp.h
-void gridHelper(int size, int step);
-```
-
-```
-//ofApp.cpp
-void ofApp::gridHelper(int size, int step){
-    ofSetColor(0,20);
-    for (int i=0; i<size; i+=step) {
-        ofDrawLine(i-size/2, 0, size/2, i-size/2, 0, -size/2);
-        ofDrawLine(-size/2, 0, i-size/2, size/2, 0, i-size/2);
-    }
-}
-```
