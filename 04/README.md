@@ -276,7 +276,7 @@ public:
     
 
     glm::vec2 pos;
-    float vy;
+    float speed;
     float size;
     ofColor col;
     
@@ -293,17 +293,17 @@ Particle.cpp
 Particle::Particle(){
     pos.x = ofRandom(0,ofGetWidth());
     pos.y = ofRandom(0,ofGetWidth());
-    vy = ofRandom(1, 3);
+    speed = ofRandom(1, 3);
     size = ofRandom(5, 40);
     col = ofColor(ofRandom(255),ofRandom(255),ofRandom(255));
 }
 
 void Particle::update(){
     
-    pos.y -= vy;
+    pos.y -= speed;
     
     if(pos.y < 0){
-        pos.y = ofGetHeight();
+        pos.y  = ofGetHeight();
     }
 
 }
@@ -311,7 +311,7 @@ void Particle::update(){
 void Particle::draw(){
     
     ofSetColor(col);
-    ofDrawCircle(pos.x,pos.y, size, size);
+    ofDrawCircle(pos.x, pos.y, size, size);
 }
 ```
 
@@ -335,7 +335,6 @@ class ofApp : public ofBaseApp{
         Particle p[NUM];
     
 };
-
 ```
 
 ofApp.cpp
@@ -370,6 +369,7 @@ void ofApp::draw(){
     }
 
 }
+
 
 ```
 
