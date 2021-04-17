@@ -3,7 +3,7 @@
 プログラミングしていく考え方。oFではこちらを推奨。<br>
 例えばこちらの例だと、「飼い主」「犬」「背景」などにソースを分けて管理する。
 
-<img src="images/oop.jpg" width="600px">
+<img src="images/oop.pdf" width="600px">
 
 ## 実際のoopのコード
 
