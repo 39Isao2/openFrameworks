@@ -139,7 +139,7 @@ Particle.hpp (クラス名の先頭は大文字が流儀)
 
 # シンプルなクラスの例
 
-<img src="images/class2.png" width="700px">
+<img src="images/class2.png" width="500px">
 
 Particle.hpp
 ```
@@ -256,7 +256,7 @@ void ofApp::draw(){
 ### 泡の様に上に上るソース
 
 <br>
-これのoFバージョンです<br>
+これのoFバージョンです<br><br>
 <img src="images/oop.png" width="700px">
 
 Particle.hpp
