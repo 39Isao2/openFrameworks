@@ -151,18 +151,18 @@ Particle.hpp
 class Particle{
     
 public:
-    
-    // プロパティ
-    glm::vec2 pos; // 位置
-    ofColor col; // 色
-    float radius; // 半径
-    
+
     // コンストラクタ (インスタンス化した時に実行されるメソッド)
     Particle();
     
     // メソッド
     void setup();
     void draw();
+    
+    // プロパティ
+    glm::vec2 pos; // 位置
+    ofColor col; // 色
+    float radius; // 半径
     
 };
 
