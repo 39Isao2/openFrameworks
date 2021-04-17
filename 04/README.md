@@ -253,6 +253,125 @@ void ofApp::draw(){
 ```
 
 
+### 泡の様に上に上るソース
+Particle.hpp
+```
+#pragma once
+
+#include "ofMain.h"
+
+
+class Particle{
+    
+public:
+
+    Particle();
+    void update();
+    void draw();
+    
+
+    glm::vec2 pos;
+    float vy;
+    float size;
+    ofColor col;
+    
+};
+
+```
+
+Particle.cpp
+```
+#pragma once
+#include "Particle.hpp"
+
+
+Particle::Particle(){
+    pos.x = ofRandom(0,ofGetWidth());
+    pos.y = ofRandom(0,ofGetWidth());
+    vy = ofRandom(1, 3);
+    size = ofRandom(5, 40);
+    col = ofColor(ofRandom(255),ofRandom(255),ofRandom(255));
+}
+
+void Particle::update(){
+    
+    pos.y -= vy;
+    
+    if(pos.y < 0){
+        pos.y = ofGetHeight();
+    }
+
+}
+
+void Particle::draw(){
+    
+    ofSetColor(col);
+    ofDrawCircle(pos.x,pos.y, size, size);
+}
+```
+
+ofApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+#include "Particle.hpp"
+
+class ofApp : public ofBaseApp{
+
+    public:
+        void setup();
+        void update();
+        void draw();
+    
+        static const int NUM = 100;
+    
+        // Particleクラスをインスタンス化
+        Particle p[NUM];
+    
+};
+
+```
+
+ofApp.cpp
+```
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    ofSetFrameRate(60);
+    
+    ofBackground(0);
+    
+    ofSetCircleResolution(64);
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+    
+    for(int i=0; i<NUM; i++){
+        p[i].update();
+    }
+
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    for(int i=0; i<NUM; i++){
+        p[i].draw();
+    }
+
+}
+
+```
+
+
+
+
+
 
 ### 引数渡すver
 
