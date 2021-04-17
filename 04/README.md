@@ -256,30 +256,34 @@ void ofApp::draw(){
 
 ### 引数渡すver
 
-ofApp.cpp
-```
-p1.setup(float radius);
-
-```
 Particle.hpp
 ```
-void setup(float radius);
+void setup(float r);
 ```
 Particle.cpp
 ```
-void Particle::setup(float radius){
+void Particle::setup(float r){
     // 位置
     pos.x = ofRandom(300, 600);
     pos.y = ofRandom(300, 600);
     
     // 半径
-    radius = radius;
+    radius = r;
     
     // 色
     col = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
 }
 
 ```
+
+ofApp.cpp
+```
+p1.setup(300);
+p1.setup(200);
+
+```
+
+
 
 
 ### 動的配列のクラス版 (少し難しいかも)
