@@ -128,24 +128,9 @@ void draw(){
 
 
 
-# クラスとインスタンス
-classとは設計図。インスタンスは実態。<br>
-全部of.App内で配列などで管理するとコードが見にくくなるのでオブジェクトごとに分けて管理します。<br>
-
-
-
-
-
-
-```
-オブジェクト指向プログラミング
-cとc++の違いはオブジェクト指向
-objectがメッセージを送りあう
-
-オブジェクト
-プロパティ、メソッド
-カプセル化 時計の時間合わせとかはpublic 中身機械構造はprivate
-```
+# openFrameworksでクラスとインスタンスを使ってみる
+classは設計図。インスタンスはそれに基づいて生成した実態。<br>
+先程のオブジェクト指向をopenFrameworks版で書いてみる<br>
 
 ## クラスファイルの作成
 ファイル → new → file → c++ <br>
@@ -172,7 +157,7 @@ public:
     ofColor col; // 色
     float radius; // 半径
     
-    // コンストラクタ
+    // コンストラクタ (インスタンス化した時に実行されるメソッド)
     Particle();
     
     // メソッド
@@ -186,8 +171,9 @@ public:
 
 Particle.cpp
 ```
-
+#pragma once
 #include "Particle.hpp"
+
 
 Particle::Particle(){
     
@@ -195,6 +181,7 @@ Particle::Particle(){
 
 
 void Particle::setup(){
+
     // 位置
     pos.x = ofRandom(300, 600);
     pos.y = ofRandom(300, 600);
