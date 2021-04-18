@@ -182,7 +182,7 @@ void Particle::draw(){
 
 メモ
 ```
-ofAppで<br>
+ofAppで
 クラス名* 変数で宣言
 &で渡して、*で受け取る
 
