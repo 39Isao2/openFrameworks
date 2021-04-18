@@ -390,7 +390,7 @@ void ofApp::draw(){
 
 ### コンストラクタに引数渡すver
 
-変更点<br><br>
+変更点↓<br>
 
 Particle.hpp
 ```
