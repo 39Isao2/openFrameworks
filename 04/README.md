@@ -217,7 +217,7 @@ class ofApp : public ofBaseApp{
         void update();
         void draw();
     
-        // Particleクラスのインスタンス宣言   (正確にはポインタ変数で)
+        // Particleクラスのインスタンス宣言   (正確にはポインタ変数で宣言)
         Particle* p1;
         Particle* p2;
 };
@@ -273,6 +273,7 @@ class Particle{
 public:
 
     Particle();
+    void setup();
     void update();
     void draw();
     
@@ -288,7 +289,6 @@ public:
 
 Particle.cpp
 ```
-#pragma once
 #include "Particle.hpp"
 
 
@@ -299,6 +299,12 @@ Particle::Particle(){
     size = ofRandom(5, 40);
     col = ofColor(ofRandom(255),ofRandom(255),ofRandom(255));
 }
+
+
+void Particle::setup(){
+
+}
+
 
 void Particle::update(){
     
@@ -315,6 +321,7 @@ void Particle::draw(){
     ofSetColor(col);
     ofDrawCircle(pos.x, pos.y, size, size);
 }
+
 ```
 
 ofApp.h
@@ -333,8 +340,8 @@ class ofApp : public ofBaseApp{
     
         static const int NUM = 100;
     
-        // Particleクラスをインスタンス化
-        Particle p[NUM];
+        // Particleクラスのインスタンスを宣言 (正確にはポインタ変数で宣言)
+        Particle* p[NUM];
     
 };
 ```
@@ -352,13 +359,18 @@ void ofApp::setup(){
     
     ofSetCircleResolution(64);
     
+    
+    for(int i=0; i<NUM; i++){
+        p[i] = new Particle();
+    }
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
     for(int i=0; i<NUM; i++){
-        p[i].update();
+        p[i]->update();
     }
 
 }
@@ -367,12 +379,10 @@ void ofApp::update(){
 void ofApp::draw(){
     
     for(int i=0; i<NUM; i++){
-        p[i].draw();
+        p[i]->draw();
     }
 
 }
-
-
 ```
 
 
