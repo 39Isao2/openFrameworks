@@ -276,7 +276,7 @@ public:
     
 
     glm::vec2 pos;
-    float speed;
+    float velocity;
     float size;
     ofColor col;
     
@@ -293,14 +293,14 @@ Particle.cpp
 Particle::Particle(){
     pos.x = ofRandom(0,ofGetWidth());
     pos.y = ofRandom(0,ofGetWidth());
-    speed = ofRandom(1, 3);
+    velocity = ofRandom(1, 3);
     size = ofRandom(5, 40);
     col = ofColor(ofRandom(255),ofRandom(255),ofRandom(255));
 }
 
 void Particle::update(){
     
-    pos.y -= speed;
+    pos.y -= velocity;
     
     if(pos.y < 0){
         pos.y  = ofGetHeight();
