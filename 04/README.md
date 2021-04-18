@@ -166,6 +166,7 @@ public:
     
 };
 
+
 ```
 
 
@@ -216,11 +217,10 @@ class ofApp : public ofBaseApp{
         void update();
         void draw();
     
-        // Particleクラス2つインスタンス化
-        Particle p1;
-        Particle p2;
+        // Particleクラスのインスタンス宣言   (正確にはポインタ変数で)
+        Particle* p1;
+        Particle* p2;
 };
-
 ```
 
 ofApp.cpp
@@ -230,8 +230,12 @@ ofApp.cpp
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    p1.setup();
-    p2.setup();
+    // インスタンスの生成
+    p1 = new Particle();
+    p2 = new Particle();
+    
+    p1->setup();
+    p2->setup();
     
 }
 
@@ -243,12 +247,10 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
-    
-    p1.draw();
-    p2.draw();
+    p1->draw();
+    p2->draw();
 
 }
-
 
 ```
 
