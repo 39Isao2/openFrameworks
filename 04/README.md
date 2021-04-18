@@ -139,7 +139,7 @@ Particle.hpp (クラス名の先頭は大文字が流儀)
 
 # シンプルなクラスの例
 
-<img src="images/class2.png" width="500px">
+<img src="images/class3.png" width="500px">
 
 Particle.hpp
 ```
@@ -394,12 +394,12 @@ void ofApp::draw(){
 
 Particle.hpp
 ```
-	Particle(float diameter);
+	Particle(float size);
 };
 ```
 Particle.cpp
 ```
-Particle::Particle(float diameter){
+Particle::Particle(float size){
     pos.x = ofRandom(0,ofGetWidth());
     pos.y = ofRandom(0,ofGetWidth());
     velocity = ofRandom(1, 3);
