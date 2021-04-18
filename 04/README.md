@@ -388,31 +388,42 @@ void ofApp::draw(){
 
 
 
-### 引数渡すver
+### コンストラクタに引数渡すver
+
+変更点<br><br>
 
 Particle.hpp
 ```
-void setup(float r);
+	Particle(float diameter);
+};
 ```
 Particle.cpp
 ```
-void Particle::setup(float r){
-    // 位置
-    pos.x = ofRandom(300, 600);
-    pos.y = ofRandom(300, 600);
-    
-    // 半径
-    radius = r;
-    
-    // 色
-    col = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
+Particle::Particle(float diameter){
+    pos.x = ofRandom(0,ofGetWidth());
+    pos.y = ofRandom(0,ofGetWidth());
+    velocity = ofRandom(1, 3);
+    size = diameter;
+    col = ofColor(ofRandom(255),ofRandom(255),ofRandom(255));
 }
 
 ```
 
 ofApp.cpp
 ```
-p1.setup(300);
-p1.setup(200);
+void ofApp::setup(){
+    
+    ofSetFrameRate(60);
+    
+    ofBackground(0);
+    
+    ofSetCircleResolution(64);
+    
+    
+    for(int i=0; i<NUM; i++){
+        p[i] = new Particle(10);
+    }
+    
+}
 
 ```
