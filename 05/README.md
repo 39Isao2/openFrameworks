@@ -41,8 +41,7 @@ http://www.isc.meiji.ac.jp/~re00079/EX2.2009/2009_24.html
 - ポインタ変数から値を取るには変数名の前に*をつける *pNum　間接参照演算子
 
 
-## クラスでポインタを使って高速化
-大量表示の時にありがたみがわかると思います。
+## ポインタを使って高速化の書き方
 
 ofApp.hpp
 
@@ -50,27 +49,20 @@ ofApp.hpp
 #pragma once
 
 #include "ofMain.h"
-#include "SineCircle.hpp" //クラスのインクルード
+#include "Particle.hpp"
 
 class ofApp : public ofBaseApp{
 
-　　public:
-	void setup();
-	void update();
-	void draw();
-  
-    //配列数
-    static const int NUM = 10000;
+    public:
+        void setup();
+        void update();
+        void draw();
     
-    //インスタンス用ポインタ変数
-    SineCircle* sc[NUM];
+        static const int NUM = 1000;
     
-    //座標
-    glm::vec2 pos[NUM];
+        // Particleクラスのインスタンスを宣言
+        Particle* p[NUM];
     
-    //色相
-    int hue[NUM];
-  
 };
 ```
 
@@ -81,112 +73,108 @@ ofApp.cpp
 //--------------------------------------------------------------
 void ofApp::setup(){
     
+    ofSetFrameRate(60);
+    
     ofBackground(0);
+    
     ofSetCircleResolution(64);
     
     
     for(int i=0; i<NUM; i++){
-        pos[i].x = i * 20;
-	pos[i].y = j * 20;
-	hue[i] = (int)ofRandom(360); //キャスト
-
-	//インスタンスの生成
-	sc[i] = new SineCircle(&pos[i], &hue[i]);
+        
+        // 色
+        ofColor col = ofColor(ofRandom(256),ofRandom(256),ofRandom(256));
+        
+        // サイズ
+        float size = ofRandom(1, 4);
+        
+        // インスタンスの生成
+        p[i] = new Particle(&size, &col);
     }
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
-    for(int i=0; i<NUM; i++){
-        sc[i]->updata();
-    }
     
+    for(int i=0; i<NUM; i++){
+        p[i]->update();
+    }
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+    
+    for(int i=0; i<NUM; i++){
+        p[i]->draw();
+    }
 
-   // フレームレート表示
-   //ofDrawBitmapString(ofToString(ofGetFrameRate()) + "fps", 20, 20);
- 
-   for(int i=0; i<NUM; i++){
-       sc[i]->draw();
-   }
 }
 
 ```
 
-SineCircle.hpp
+Particle.hpp
 
 ```
 #pragma once
+
 #include "ofMain.h"
 
 
-//クラス宣言
-class SineCircle{
+class Particle{
     
 public:
-    
-    //コンストラクタ　最初に呼ばれる
-    SineCircle(glm::vec2* pPos, int* pHue);
-    
-    //メソッド
-    void updata();
+
+    Particle(float* s, ofColor* c);
+    void setup();
+    void update();
     void draw();
-    void setHSBA(int,int,int,int);
     
-    //プロパティ
+
     glm::vec2 pos;
-    float diameter;
-    int speed;
-    int angle;
-    int hue;
+    float velocity;
+    float size;
+    ofColor col;
     
 };
 ```
 
-SineCircle.cpp
+Particle.cpp
 
 ```
+#pragma once
+#include "Particle.hpp"
 
-#include "SineCircle.hpp"
 
-
-//コンストラクタ
-SineCircle::SineCircle(glm::vec2* pPos, int* pHue){
-    //初期座標
-    pos.x = ofRandom(0, ofGetWidth());
-    pos.y = ofRandom(0, ofGetHeight());
-    diameter = 0;
-    angle = (int)ofRandom(360);
-    speed = 2;
-    hue = *pHue;
+Particle::Particle(float* s, ofColor* c){
+    pos.x = ofRandom(0,ofGetWidth());
+    pos.y = ofRandom(0,ofGetWidth());
+    velocity = ofRandom(1, 3);
+    size = *s;
+    col = *c;
 }
 
-//メソッド
-void SineCircle::updata(){
-    angle += speed;
-    if(angle>360){
-        angle = 0;
+
+void Particle::setup(){
+
+}
+
+
+void Particle::update(){
+    
+    pos.y -= velocity;
+    
+    if(pos.y < 0){
+        pos.y  = ofGetHeight();
     }
-    diameter = sin(angle*DEG_TO_RAD) * 100;
+
 }
 
-void SineCircle::draw(){
-    setHSBA(hue,100,100,100);
-    ofDrawCircle(pos.x, pos.y, diameter);
-}
-
-void SineCircle::setHSBA(int hue, int saturation, int brightness, int alpha){
-    int setHue = (int)ofMap(hue, 0 , 360, 0, 255);
-    int setSaturation = (int)ofMap(saturation, 0 , 100, 0, 255);
-    int setBrightness = (int)ofMap(brightness, 0 , 100, 0, 255);
-    int setAlpha = (int)ofMap(alpha, 0, 100, 0, 255);
-    ofColor c;
-    c.setHsb(setHue, setSaturation, setBrightness, setAlpha);
-    return ofSetColor(c);
+void Particle::draw(){
+    
+    ofSetColor(col);
+    ofDrawCircle(pos.x, pos.y, size, size);
 }
 
 ```
@@ -197,7 +185,6 @@ void SineCircle::setHSBA(int hue, int saturation, int brightness, int alpha){
 
 クラス名* 変数で宣言
 &で渡して、*で受け取る
-*がきたら->でget！
 
 ofApp.hとcpp
 ------------------------------------
@@ -209,14 +196,15 @@ SineCircle* sc = new SineCircle(&pos);
 SineCircle.cpp
 ------------------------------------
 // &できたので*で受け取る
-SineCircle::SineCircle(ofVec2f* pPos){
+SineCircle::SineCircle(ofVec2f* pPos, int s){
     // *がきたので->でゲット！
     pos.x = pPos->x;
     pos.y = pPos->y;
+    size = s;
 }
 ------------------------------------
 SineCircle* sc
-*で作った変数は
+*で作ったインスタンス（ポインタ変数）は
 sc->update();
 sr->draw();
 みたいに->で使う。
