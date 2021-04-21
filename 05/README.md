@@ -134,7 +134,7 @@ public:
 
     glm::vec2 pos;
     float velocity;
-    float size;
+    float diameter;
     ofColor col;
     
 };
