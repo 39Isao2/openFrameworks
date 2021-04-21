@@ -187,7 +187,7 @@ void Particle::setup(){
     pos.x = ofRandom(0, ofGetWodth());
     pos.y = ofRandom(0, ofGetHeight());
     
-    // 半径
+    // 直径
     diameter = ofRandom(10,50);
     
     // 色
@@ -196,7 +196,7 @@ void Particle::setup(){
 
 void Particle::draw(){
     ofSetColor(col);
-    ofDrawCircle(pos.x, pos.y, radius);
+    ofDrawCircle(pos.x, pos.y, diameter);
 }
 
 
