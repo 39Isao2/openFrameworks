@@ -86,10 +86,10 @@ void ofApp::setup(){
         ofColor col = ofColor(ofRandom(256),ofRandom(256),ofRandom(256));
         
         // サイズ
-        float size = ofRandom(1, 4);
+        float diameter = ofRandom(1, 4);
         
         // インスタンスの生成
-        p[i] = new Particle(&size, &col);
+        p[i] = new Particle(&diameter, &col);
     }
     
 }
@@ -151,7 +151,7 @@ Particle::Particle(float* s, ofColor* c){
     pos.x = ofRandom(0,ofGetWidth());
     pos.y = ofRandom(0,ofGetWidth());
     velocity = ofRandom(1, 3);
-    size = *s;
+    diameter = *s;
     col = *c;
 }
 
@@ -174,7 +174,7 @@ void Particle::update(){
 void Particle::draw(){
     
     ofSetColor(col);
-    ofDrawCircle(pos.x, pos.y, size, size);
+    ofDrawCircle(pos.x, pos.y, diameter);
 }
 
 ```
