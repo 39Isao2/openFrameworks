@@ -388,14 +388,13 @@ void ofApp::draw(){
 
 
 
-### コンストラクタに引数渡すver
+### コンストラクタに引数(関数に渡す値)渡すver
 
 変更点↓<br>
 
 Particle.hpp
 ```
-	Particle(float size);
-};
+Particle(float size);
 ```
 Particle.cpp
 ```
