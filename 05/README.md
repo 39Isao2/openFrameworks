@@ -58,10 +58,12 @@ class ofApp : public ofBaseApp{
         void update();
         void draw();
     
-        static const int NUM = 1000;
+        static const int NUM = 100;
     
         // Particleクラスのインスタンスを宣言
         Particle* p[NUM];
+    
+        ofImage pengin;
     
 };
 ```
@@ -75,21 +77,20 @@ void ofApp::setup(){
     
     ofSetFrameRate(60);
     
-    ofBackground(0);
+    ofBackground(255);
     
-    ofSetCircleResolution(64);
+    ofEnableAlphaBlending();
+    
+    pengin.load("image/pengin.png");
     
     
     for(int i=0; i<NUM; i++){
         
-        // 色
-        ofColor col = ofColor(ofRandom(256),ofRandom(256),ofRandom(256));
-        
-        // サイズ
-        float diameter = ofRandom(1, 4);
+        cout << sizeof(pengin) << endl;
+        cout << sizeof(&pengin) << endl;
         
         // インスタンスの生成
-        p[i] = new Particle(&diameter, &col);
+        p[i] = new Particle(&pengin);
     }
     
 }
@@ -106,12 +107,13 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
     
+    
+    
     for(int i=0; i<NUM; i++){
         p[i]->draw();
     }
 
 }
-
 ```
 
 Particle.hpp
@@ -126,7 +128,7 @@ class Particle{
     
 public:
 
-    Particle(float* s, ofColor* c);
+    Particle(ofImage *img);
     void setup();
     void update();
     void draw();
@@ -134,8 +136,7 @@ public:
 
     glm::vec2 pos;
     float velocity;
-    float diameter;
-    ofColor col;
+    ofImage animal;
     
 };
 ```
@@ -143,16 +144,13 @@ public:
 Particle.cpp
 
 ```
-#pragma once
 #include "Particle.hpp"
 
-
-Particle::Particle(float* s, ofColor* c){
+Particle::Particle(ofImage *img){
     pos.x = ofRandom(0,ofGetWidth());
     pos.y = ofRandom(0,ofGetWidth());
     velocity = ofRandom(1, 3);
-    diameter = *s;
-    col = *c;
+    animal = *img;
 }
 
 
@@ -172,9 +170,6 @@ void Particle::update(){
 }
 
 void Particle::draw(){
-    
-    ofSetColor(col);
-    ofDrawCircle(pos.x, pos.y, diameter);
+    animal.draw(pos.x, pos.y);
 }
-
 ```
