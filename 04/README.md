@@ -296,7 +296,7 @@ Particle::Particle(){
     pos.x = ofRandom(0,ofGetWidth());
     pos.y = ofRandom(0,ofGetWidth());
     velocity = ofRandom(1, 3);
-    size = ofRandom(5, 40);
+    diameter = ofRandom(5, 40);
     col = ofColor(ofRandom(255),ofRandom(255),ofRandom(255));
 }
 
@@ -319,7 +319,7 @@ void Particle::update(){
 void Particle::draw(){
     
     ofSetColor(col);
-    ofDrawCircle(pos.x, pos.y, size, size);
+    ofDrawCircle(pos.x, pos.y, diameter);
 }
 
 ```
@@ -402,7 +402,7 @@ Particle::Particle(float size){
     pos.x = ofRandom(0,ofGetWidth());
     pos.y = ofRandom(0,ofGetWidth());
     velocity = ofRandom(1, 3);
-    size = diameter;
+    diameter = size;
     col = ofColor(ofRandom(255),ofRandom(255),ofRandom(255));
 }
 
