@@ -162,7 +162,7 @@ public:
     // プロパティ
     glm::vec2 pos; // 位置
     ofColor col; // 色
-    float radius; // 半径
+    float diameter; // 直径
     
 };
 
@@ -184,11 +184,11 @@ Particle::Particle(){
 void Particle::setup(){
 
     // 位置
-    pos.x = ofRandom(300, 600);
-    pos.y = ofRandom(300, 600);
+    pos.x = ofRandom(0, ofGetWodth());
+    pos.y = ofRandom(0, ofGetHeight());
     
     // 半径
-    radius = ofRandom(10,50);
+    diameter = ofRandom(10,50);
     
     // 色
     col = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
