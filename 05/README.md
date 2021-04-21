@@ -178,35 +178,3 @@ void Particle::draw(){
 }
 
 ```
-
-
-メモ
-```
-<!--
-ofAppで
-クラス名* 変数で宣言
-&で渡して、*で受け取る
-
-ofApp.hとcpp
-------------------------------------
-// 変数pos作る
-ofVec2f pos;
-// コンストラクタに&で渡す
-SineCircle* sc = new SineCircle(&pos);
-------------------------------------
-SineCircle.cpp
-------------------------------------
-// &できたので*で受け取る
-SineCircle::SineCircle(ofVec2f* pPos, int s){
-    // *がきたので->でゲット！
-    pos.x = pPos->x;
-    pos.y = pPos->y;
-    size = s;
-}
-------------------------------------
-SineCircle* sc
-*で作ったインスタンス（ポインタ変数）は
-sc->update();
-sr->draw();
-みたいに->で使う。 -->
-```
