@@ -98,6 +98,7 @@ class ofApp : public ofBaseApp{
     ofBoxPrimitive box; // 立方体
     ofEasyCam cam;
     ofVec3f camPos; // カメラの位置
+    ofVec3f targetPos;
     float theta;
 		
 };
@@ -119,8 +120,9 @@ void ofApp::setup(){
     camPos.set(ofVec3f(0, 0, 0));
     cam.setPosition(camPos);
     
-    // カメラの注意点
-    cam.lookAt(ofVec3f(0,0,0));
+    // カメラの中視点
+    targetPos = ofVec3f(0,0,0);
+    cam.setTarget(targetPos);
 
        
        
@@ -137,7 +139,7 @@ void ofApp::update(){
     camPos.y = 1000;
     camPos.z = 1000 * cos(theta * DEG_TO_RAD);
     cam.setPosition(camPos);
-    cam.lookAt(ofVec3f(0,0,0));
+    cam.setTarget(targetPos);
     
     
     theta+=0.5;
