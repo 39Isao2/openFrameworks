@@ -83,6 +83,93 @@ void ofApp::keyPressed(int key){
 
 ```
 
+## 中心を見つめたままカメラの自走
+ofApp.h
+```
+#include "ofMain.h"
+
+class ofApp : public ofBaseApp{
+
+	public:
+		void setup();
+		void update();
+		void draw();
+
+    ofBoxPrimitive box; // 立方体
+    ofEasyCam cam;
+    ofVec3f camPos; // カメラの位置
+    float theta;
+		
+};
+
+```
+ofApp.cpp
+```
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    
+    ofBackground(0);
+    ofSetFrameRate(60);
+    ofEnableDepthTest();
+
+    //カメラの初期値
+    camPos.set(ofVec3f(0, 0, 0));
+    cam.setPosition(camPos);
+    
+    // カメラの注意点
+    cam.lookAt(ofVec3f(0,0,0));
+
+       
+       
+
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+    
+    
+    
+    // グルグル回す
+    camPos.x = 1000 * sin(theta * DEG_TO_RAD);
+    camPos.y = 1000;
+    camPos.z = 1000 * cos(theta * DEG_TO_RAD);
+    cam.setPosition(camPos);
+    cam.lookAt(ofVec3f(0,0,0));
+    
+    
+    theta+=0.5;
+    if(theta > 360){
+        theta = 0;
+    }
+    
+
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    
+    cam.begin();
+        
+        // 立方体
+        box.set(100); //幅、高さ、奥行き 100px
+        box.setPosition(0,0,0); // 位置指定
+        box.drawWireframe();
+    
+    
+        ofDrawAxis(1000);
+    
+    cam.end();
+    
+    
+}
+```
+
+
+
 ## イージングをかけつつランダムにカメラの位置を移動する
 
 ofApp.h
