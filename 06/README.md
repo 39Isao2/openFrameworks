@@ -2,8 +2,12 @@
 
 コンピュータグラフィックの3D表現は3次元の仮想空間を作り、
 その中をカメラを通して2Dとして見ている。 
-左右(x座標)と上下(y座標)に加えて(z座標)奥行きが加わる。
+左右(x座標)と上下(y座標)に加えて(z座標)奥行きが加わる。 
 
+
+<img src="images/3d_Scene.png" width=""><br>
+<img src="images/PerspectiveCamera.png" width=""><br>
+<img src="images/Renderer.png" width=""><br>
 
 
 <!--<img src="https://raw.githubusercontent.com/55Kaerukun/JavaScript/master/images/threeJS.png" width="600px">-->
