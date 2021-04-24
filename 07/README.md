@@ -168,6 +168,113 @@ void ofApp::draw(){
 }
 ```
 
+## ボックスを増やしてみる
+<img src="images/randBoxs.png" width="600px">
+
+ofApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+
+class ofApp : public ofBaseApp{
+
+	public:
+		void setup();
+		void update();
+		void draw();
+
+    static const int NUM = 50;
+    ofBoxPrimitive box[NUM]; // 立方体
+    ofVec3f boxPos[NUM];
+    float boxSize[NUM];
+    ofColor boxCol[NUM];
+    
+
+    ofEasyCam cam;
+    ofVec3f camPos; // カメラの位置
+    float theta;
+};
+
+```
+
+of.cpp
+```
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    
+    ofBackground(255);
+    ofSetFrameRate(60);
+    ofEnableDepthTest();
+
+    //カメラの初期値
+    camPos.set(ofVec3f(0, 0, 0));
+    cam.setPosition(camPos);
+    //cam.setPosition(camPos);
+    
+    // カメラの注意点
+    cam.lookAt(ofVec3f(0,0,0));
+    
+    // ボックスのポジション
+    for (int i=0; i<NUM; i++) {
+        box[i].set(ofRandom(30,200)); //幅、高さ、奥行き 100px
+        
+        ofVec3f pos;
+        pos.x = ofRandom(-500,1000);
+        pos.y = ofRandom(-500,1000);
+        pos.z = ofRandom(-500,1000);
+        
+        box[i].setPosition(pos); // 位置指定
+        boxCol[i] = ofColor(ofRandom(256),ofRandom(256),ofRandom(256));
+    }
+
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+    
+    
+    
+    // グルグル回す
+    camPos.x = 1000 * sin(theta * DEG_TO_RAD);
+    camPos.y = 1000;
+    camPos.z = 1000 * cos(theta * DEG_TO_RAD);
+    cam.setPosition(camPos);
+    cam.lookAt(ofVec3f(0,0,0));
+    
+    
+    theta+=0.5;
+    if(theta > 360){
+        theta = 1;
+    }
+
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    
+    cam.begin();
+        
+        // 立方体の描画
+        for (int i=0; i<NUM; i++) {
+            ofSetColor(boxCol[i]);
+            box[i].draw();
+        }
+    
+    
+        ofDrawAxis(1000);
+    
+    cam.end();
+    
+    
+}
+
+```
+
 
 
 ## イージングをかけつつランダムにカメラの位置を移動する
