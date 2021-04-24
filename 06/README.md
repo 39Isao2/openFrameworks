@@ -5,9 +5,9 @@
 左右(x座標)と上下(y座標)に加えて(z座標)奥行きが加わる。 
 
 
-<img src="images/3d_Scene.png" width=""><br>
-<img src="images/PerspectiveCamera.png" width=""><br>
-<img src="images/Renderer.png" width=""><br>
+<img src="images/3d_Scene.png" width=""><br><br>
+<img src="images/PerspectiveCamera.png" width=""><br><br>
+<img src="images/Renderer.png" width=""><br><br>
 
 
 <!--<img src="https://raw.githubusercontent.com/55Kaerukun/JavaScript/master/images/threeJS.png" width="600px">-->
