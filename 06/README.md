@@ -149,6 +149,9 @@ void ofApp::draw(){
 
     cam.begin();
     
+    	// ヘルパー
+    	ofDrawAxis(1000);
+    
         // 立方体
         box.set(100); //幅、高さ、奥行き 100px
         box.setPosition(0,0,0); // 位置指定
