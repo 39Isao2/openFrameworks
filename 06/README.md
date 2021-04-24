@@ -216,9 +216,7 @@ void ofApp::setup(){
 
 
 void ofApp::draw(){
-    
-    ofEnableDepthTest();
-    
+
     cam.begin();
     
         // 立方体
