@@ -278,6 +278,151 @@ void ofApp::draw(){
 ```
 
 
+## イージングをかけつつランダムにカメラの位置を移動する(box ver)
+
+ofApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+
+class ofApp : public ofBaseApp{
+
+public:
+	void setup();
+	void update();
+	void draw();
+	void keyPressed(int key);
+
+    
+    static const int NUM = 50;
+    ofBoxPrimitive box[NUM]; // 立方体
+    ofVec3f boxPos[NUM];
+    float boxSize[NUM];
+    ofColor boxCol[NUM];
+    
+    
+    
+    ofEasyCam cam;
+    ofVec3f camPos; // カメラの座標
+    ofVec3f targetCamPos; //カメラの目的地
+    ofVec3f camLook; //カメラの視点
+    ofVec3f targetCamLook; //カメラ視点の目的地
+    float camEasing = 0.03; //カメラアニメーションのイージング
+    
+    //シーン管理
+    int scene = 0;
+};
+
+```
+
+ofApp.cpp
+```
+
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    
+    ofBackground(255);
+    ofSetFrameRate(60);
+    ofEnableDepthTest();
+    
+    
+    //カメラの初期値
+    camPos.set(0, +1000, +1000);
+    cam.setPosition(camPos);
+    
+    // カメラの注意点
+    camLook.set(0,0,0);
+    //cam.setTarget(camLook);
+    cam.setTarget(camLook);
+    
+    scene = 0;
+    
+    
+    
+    // ボックスのポジション
+    for (int i=0; i<NUM; i++) {
+        box[i].set(ofRandom(30,200)); //幅、高さ、奥行き 100px
+        
+        ofVec3f pos;
+        pos.x = ofRandom(-500,1000);
+        pos.y = ofRandom(-500,1000);
+        pos.z = ofRandom(-500,1000);
+        
+        box[i].setPosition(pos); // 位置指定
+        boxCol[i] = ofColor(ofRandom(256),ofRandom(256),ofRandom(256));
+    }
+
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+    
+    
+
+    
+    // 中視点の向き先
+    if(scene == 0){
+        cam.setTarget(ofVec3f(0,0,0));
+        
+    } else {
+        
+        // カメライージングの公式
+        // 現在位置+= (目的地 - 現在地) * イージング係数;
+        camPos += (targetCamPos - camPos) * camEasing;
+        cam.setPosition(camPos);
+        
+        if(scene == 1){
+            cam.setTarget(box[0]);
+        }
+        else if(scene == 2){
+            cam.setTarget(box[30]);
+        }
+        
+    }
+    
+
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    
+    cam.begin();
+        
+        // 立方体の描画
+        for (int i=0; i<NUM; i++) {
+            ofSetColor(boxCol[i]);
+            box[i].draw();
+        }
+    
+    
+        ofDrawAxis(1000);
+    
+    cam.end();
+    
+}
+
+void ofApp::keyPressed(int key){
+ 
+    if (key == 'a'){
+       scene = 1;
+       targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
+       //targetCamPos.set(ofVec3f(200,500,0));
+    }
+    else if (key == 'b'){
+       scene = 2;
+       //targetCamPos.set(ofVec3f(-100,100,0));
+       targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
+    }
+}
+
+```
+
+
 
 ## イージングをかけつつランダムにカメラの位置を移動する
 
@@ -381,11 +526,9 @@ void ofApp::keyPressed(int key){
     if (key == 'a'){
        scene = 1;
        targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
-       //targetCamPos.set(ofVec3f(200,500,0));
     }
     else if (key == 'b'){
        scene = 2;
-       //targetCamPos.set(ofVec3f(-100,100,0));
        targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
     }
 }
