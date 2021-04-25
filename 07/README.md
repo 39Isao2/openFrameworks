@@ -87,6 +87,8 @@ void ofApp::draw(){
         ofSetColor(255); // 青色に
         //sphere.draw();
         sphere.drawWireframe();
+	
+	ofDrawAxis(1000);
     
     
     cam.end();
