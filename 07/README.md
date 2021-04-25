@@ -310,15 +310,16 @@ ofApp.h
 class ofApp : public ofBaseApp{
 
 public:
-	void setup();
-	void update();
-	void draw();
-	void keyPressed(int key);
+    void setup();
+    void update();
+    void draw();
+    void keyPressed(int key);
 
     
     static const int NUM = 50;
     ofBoxPrimitive box[NUM]; // 立方体
     ofVec3f boxPos[NUM];
+    int randBoxNum;
     float boxSize[NUM];
     ofColor boxCol[NUM];
     
@@ -334,7 +335,6 @@ public:
     //シーン管理
     int scene = 0;
 };
-
 ```
 
 ofApp.cpp
@@ -396,12 +396,7 @@ void ofApp::update(){
         camPos += (targetCamPos - camPos) * camEasing;
         cam.setPosition(camPos);
         
-        if(scene == 1){
-            cam.setTarget(box[0]);
-        }
-        else if(scene == 2){
-            cam.setTarget(box[30]);
-        }
+        cam.setTarget(box[randBoxNum]);
         
     }
     
@@ -431,15 +426,13 @@ void ofApp::keyPressed(int key){
  
     if (key == 'a'){
        scene = 1;
-       targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
-       //targetCamPos.set(ofVec3f(200,500,0));
-    }
-    else if (key == 'b'){
-       scene = 2;
-       //targetCamPos.set(ofVec3f(-100,100,0));
+       randBoxNum = ofRandom(NUM);
        targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
     }
 }
+
+
+
 
 ```
 
