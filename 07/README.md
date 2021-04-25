@@ -21,11 +21,11 @@ cam.setTarget(box);
 
 ofApp.h
 ```
-    void keyPressed(int key);
+void keyPressed(int key);
     
-    ofEasyCam cam; // カメラ
-    ofBoxPrimitive box; // 立方体
-    ofSpherePrimitive sphere; // 球体
+ofEasyCam cam; // カメラ
+ofBoxPrimitive box; // 立方体
+ofSpherePrimitive sphere; // 球体
 ```
 
 ofApp.cpp
