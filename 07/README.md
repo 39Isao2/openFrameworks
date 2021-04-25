@@ -31,7 +31,7 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-        void keyPressed(int key);
+                void keyPressed(int key);
 
     
     ofEasyCam cam; // カメラ
@@ -45,6 +45,9 @@ class ofApp : public ofBaseApp{
 
 ofApp.cpp
 ```
+
+#include "ofApp.h"
+
 void ofApp::setup(){
 
  
@@ -61,6 +64,9 @@ void ofApp::setup(){
     
     ofBackground(0);
         
+}
+void ofApp::update(){
+
 }
 
 void ofApp::draw(){
