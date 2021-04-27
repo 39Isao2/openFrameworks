@@ -328,11 +328,13 @@ public:
     
     
     ofEasyCam cam;
+    ofLight light;
     ofVec3f camPos; // カメラの座標
     ofVec3f targetCamPos; //カメラの目的地
     ofVec3f camLook; //カメラの視点
     ofVec3f targetCamLook; //カメラ視点の目的地
     float camEasing = 0.03; //カメラアニメーションのイージング
+    
     
     //シーン管理
     int scene = 0;
@@ -362,6 +364,10 @@ void ofApp::setup(){
     //cam.setTarget(camLook);
     cam.setTarget(camLook);
     
+    light.setPointLight();
+    light.setPosition(0, 0, 0);
+    light.enable();
+
     scene = 0;
     
     
