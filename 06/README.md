@@ -65,19 +65,24 @@ ofSpherePrimitive sphere;
 ofApp.cpp
 ```
 
-// 座標を中心に
-ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    ofTranslate(ofGetWidth()/2, ofGetHeight()/2);
+    
+    // 立方体
+    box.set(100); //幅、高さ、奥行き 100px
+    box.setPosition(0,0,0); // 位置指定
+    box.draw();
 
-// 立方体
-box.set(100); //幅、高さ、奥行き 100px
-box.setPosition(0,0,0); // 位置指定
-box.draw();
+    // 球体を描画
+    sphere.set(100,8); //半径100px、分割数8
+    sphere.setPosition(200, 0, 0);
+    //sphere.draw();
+    sphere.drawWireframe();
 
-// 球体を描画
-sphere.set(100,8); //半径100px、分割数8
-sphere.setPosition(200, 0, 0);
-//sphere.draw();
-sphere.drawWireframe();
+}
+
 
 ```
 
