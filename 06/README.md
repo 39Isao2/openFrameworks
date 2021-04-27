@@ -94,6 +94,9 @@ sphere.drawWireframe();
 
 ```
 
+// カメラの定義
+ofEasyCam cam;
+
 // カメラ開始
 cam.begin();
 
