@@ -108,12 +108,6 @@ cam.begin();
 // カメラ終了
 cam.end();
 
-// カメラの視野角 fov (Field of View) 視野角 60~90度が多い
-cam.setFov(80.0f);
-
-// カメラとの距離
-cam.setDistance()
-
 // カメラの位置
 cam.setPosition()
 
