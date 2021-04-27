@@ -142,7 +142,6 @@ void ofApp::setup(){
     ofEnableDepthTest(); //深度テストを有効に
     
     // カメラ設定
-    cam.setFov(80.0f);
     cam.setPosition(0,0, +500);
 }
 
