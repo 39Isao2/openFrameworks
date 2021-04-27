@@ -301,7 +301,7 @@ void ofApp::draw(){
 ```
 
 
-## イージングをかけつつランダムにカメラの位置を移動する(box ver)
+## イージングをかけつつランダムにカメラの位置を移動する
 
 ofApp.h
 ```
@@ -440,123 +440,8 @@ void ofApp::keyPressed(int key){
 }
 
 
-
-
 ```
 
-
-
-## イージングをかけつつランダムにカメラの位置を移動する
-
-ofApp.h
-```
-
-    void keyPressed(int key);
-    void gridHelper(int size, int step);
-     
-    ofBoxPrimitive box; // 立方体
-    ofSpherePrimitive sphere; // 球体
-    
-    
-    //カメラ
-    ofEasyCam cam;
-    ofVec3f camPos; // カメラの座標
-    ofVec3f targetCamPos; //カメラの目的地
-    ofVec3f camLook; //カメラの視点
-    ofVec3f targetCamLook; //カメラ視点の目的地
-    float camEasing = 0.03; //カメラアニメーションのイージング
-    
-    //シーン管理
-    int scene = 0;
-```
-
-ofApp.cpp
-
-```
-
-void ofApp::setup(){
-
-    ofBackground(0);
-    ofSetFrameRate(60);
-
-    //カメラの初期値
-    camPos.set(0, +1000, +1000);
-    cam.setPosition(camPos);
-    
-    // カメラの注意点
-    camLook.set(0,0,0);
-    //cam.setTarget(camLook);
-    cam.lookAt(camLook);
-    
-    scene = 0;
-    
-        
-}
-
-void ofApp::update(){
-    
-    // 中視点の向き先
-    if(scene == 0){
-        cam.lookAt(ofVec3f(0,0,0));
-        
-    } else {
-        
-        // カメライージングの公式
-        // 現在位置+= (目的地 - 現在地) * イージング係数;
-        camPos += (targetCamPos - camPos) * camEasing;
-        cam.setPosition(camPos);
-        
-        if(scene == 1){
-            cam.lookAt(box);
-        }
-        else if(scene == 2){
-            cam.lookAt(sphere);
-        }
-        
-    }
-
-}
-
-void ofApp::draw(){
-    
-   
-    cam.begin();
-
-        
-        // 立方体
-        box.set(100); //幅、高さ、奥行き 100px
-        ofSetColor(0,0,255); // 青色に
-        box.setPosition(300,500,0); // 位置指定
-        box.draw();
-        
-        // 球体を描画
-        sphere.set(100,8); //半径100px、分割数8
-        sphere.setPosition(-300, 200, 0);
-        ofSetColor(255); // 青色に
-        //sphere.draw();
-        sphere.drawWireframe();
-    
-        //ヘルパー
-        ofDrawAxis(1000);
-        ofSetColor(0);
-    
-    cam.end();
-}
-
-void ofApp::keyPressed(int key){
- 
-    if (key == 'a'){
-       scene = 1;
-       targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
-    }
-    else if (key == 'b'){
-       scene = 2;
-       targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
-    }
-}
-
-
-```
 
 
 ## 球面座標のアニメーションプログラミング
