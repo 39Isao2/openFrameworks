@@ -194,7 +194,7 @@ void ofApp::draw(){
 ```
 
 ## ボックスを増やしてみる
-<img src="images/randBoxs.png" width="600px">
+<img src="images/box2.png" width="600px">
 
 ofApp.h
 ```
