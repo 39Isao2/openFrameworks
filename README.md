@@ -13,6 +13,7 @@ openFrameworksのカリキュラム<br>
 * [Addonの使い方](https://github.com/55Kaerukun/openFrameworks/tree/main/09/README.md)
 * [OSCで連携](https://github.com/55Kaerukun/openFrameworks/tree/main/10/README.md)
 * [3Dの基本図形](https://github.com/55Kaerukun/openFrameworks/tree/main/06/README.md)
+* [球面座標のアニメーション](https://github.com/55Kaerukun/openFrameworks/tree/main/12/README.md)
 * [3Dのカメラワーク](https://github.com/55Kaerukun/openFrameworks/tree/main/07/README.md)
 * [メッシュ(ofMesh)について](https://github.com/55Kaerukun/openFrameworks/tree/main/08/README.md)
 * [ofxSyphonでTouchDesignerに描画画面を送る](https://github.com/55Kaerukun/openFrameworks/tree/main/11/README.md)
