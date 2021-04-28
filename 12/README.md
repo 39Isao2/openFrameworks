@@ -7,11 +7,6 @@ PointSphere.hpp
 #pragma once
 #include "ofMain.h"
 
-#ifndef PointSphere_hpp
-#define PointSphere_hpp
-
-#include <stdio.h>
-
 class PointSphere{
 public:
     //コンストラクタ
@@ -114,13 +109,7 @@ void ofApp::setup(){
     
     ofSetFrameRate(60);
     ofBackground(0);
-    
     ofEnableDepthTest();//深度
-    //カメラの設定
-    cam.setFov(80.0f);
-    cam.setDistance(500);
-    
-    
     
     for(int i=0; i<NUM; i++){
         //インスタンスの宣言
@@ -146,7 +135,6 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    ofTranslate(ofGetWidth()/2,ofGetHeight()/2,0);
     cam.begin();
     ofDrawAxis(1000);
     
