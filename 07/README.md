@@ -56,7 +56,6 @@ void ofApp::setup(){
     
     
     // カメラ設定
-    cam.setFov(80.0f);
     cam.setPosition(0,+500,+1000);
     
     // 中心を視点に
