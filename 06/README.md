@@ -187,55 +187,65 @@ void ofApp::draw(){
 
 
 
+## ofxGuiを使ってlightの位置や効果を確認するソース
+ofApp.h
 ```
-//ofApp.h
+#pragma once
 
-    ofEasyCam cam; // カメラ
-    ofBoxPrimitive box; // 立方体
-    ofSpherePrimitive sphere; // 球体
-    ofLight light; // ライト
+#include "ofMain.h"
+#include "ofxGui.h"
+
+class ofApp : public ofBaseApp{
+
+    public:
+	void setup();
+	void update();
+	void draw(); 
+		
+    ofxPanel gui;
+    ofParameter <ofVec3f> uiPosition;
     
+    ofEasyCam camera;
+    ofLight light;
+		
+};
+
 
 ```
 
+ofApp.cpp
 ```
-//ofApp.cpp
+#include "ofApp.h"
 
+//--------------------------------------------------------------
 void ofApp::setup(){
-
-    ofSetFrameRate(60);
-    ofBackground(0);
-    ofEnableDepthTest(); //深度テストを有効に
-    
-    // カメラ設定
-    cam.setFov(80.0f);
-    cam.setPosition(0,0, +500);
-    
-    // スポットライト設置
-    light.setSpotlight();
-    light.setPosition(0, 300, 500); //ライトの位置
-    light.enable();
-   
+  gui.setup();
+  gui.add(uiPosition.set("position", ofVec3f(0, 0, 0), ofVec3f(-300, -300, -300), ofVec3f(300, 300, 300)));
+  
+  /* ここでlightの種類を設定 */
+  light.setSpotlight();
+  ofBackground(0);
 }
 
+//--------------------------------------------------------------
+void ofApp::update(){
+  light.setPosition(uiPosition->x, uiPosition->y, uiPosition->z);
+}
 
+//--------------------------------------------------------------
 void ofApp::draw(){
+  ofEnableDepthTest();
 
-    cam.begin();
-    
-        // 立方体
-        box.set(100); //幅、高さ、奥行き 100px
-        box.setPosition(0,0,0); // 位置指定
-        box.draw();
-        
-        // 球体を描画
-        sphere.set(100,8); //半径100px、分割数8
-        sphere.setPosition(200, 0, 0);
-        //sphere.draw();
-        sphere.drawWireframe();
-
-    cam.end();
-    
+  light.enable();
+  camera.begin();
+  ofDrawSphere(uiPosition->x, uiPosition->y, uiPosition->z, 32);
+  ofDrawBox(0, 0, 0, 128);
+  ofDrawAxis(1000);
+  camera.end();
+  light.disable();
+  ofDisableDepthTest();
+  
+  gui.draw();
 }
 
 
