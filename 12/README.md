@@ -28,7 +28,6 @@ public:
 
 };
 
-#endif /* PointSphere_hpp */
 ```
 
 PointSphere.cpp
