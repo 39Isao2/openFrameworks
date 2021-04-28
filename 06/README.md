@@ -186,6 +186,22 @@ void ofApp::draw(){
 ![](https://openframeworks.cc/documentation/gl/Lights_AmbientDirectional.jpg)
 
 
+ofApp.h
+```
+ofLight light;
+```
+
+oApp.cpp
+```
+// ライティングを有効に
+light.enable();
+
+// スポットライトを配置
+light.setPointLight();
+
+// 照明の位置
+light.setPosition(100, 100, 100);
+```
 
 ## ofxGuiを使ってlightの位置や効果を確認するソース
 ofApp.h
