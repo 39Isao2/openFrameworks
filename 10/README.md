@@ -292,6 +292,101 @@ void ofApp::draw(){
 
 # ZIGSIMで連携
 
+## ZIGSIM設定
+<img src="images/zigsim1.png" width="400px">
+<img src="images/zigsim2.png" width="400px">
+
+## tdと連携 (oscin chop を使用)
+<img src="images/zigsim1t.png" width="600px">
+## openFrameworksと連携
+
+ofApp.h
+```
+#pragma once
+
+#include "ofMain.h"
+#include "ofxOsc.h" //インクルード
+
+class ofApp : public ofBaseApp{
+
+	public:
+		void setup();
+		void update();
+		void draw();
+
+       // ポート番号
+       static const int PORT = 50000;
+
+    
+        //OSCのレシーバー
+        ofxOscReceiver receiver;
+        
+        // OSCで受信した値
+        float receiveVal;
+        
+        // 描画する円のポジション
+        glm::vec2 pos;
+};
+
+```
+
+
+ofApp.cpp
+```
+
+#include "ofApp.h"
+
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    ofSetFrameRate(60);
+    ofBackground(0);
+    
+    receiver.setup(PORT);
+
+}
+
+//--------------------------------------------------------------
+void ofApp::update(){
+    
+    //OSCデータの受信待ち
+    while(receiver.hasWaitingMessages()){
+        
+        //受信用のインスタンス変数
+        ofxOscMessage msg;
+        receiver.getNextMessage(msg);
+        
+        
+        if(msg.getAddress()== "/ZIGSIM/0orl5vTTkYPi3qdN/touch0") {
+            float val1 = msg.getArgAsFloat(0);
+            float val2 = msg.getArgAsFloat(1);
+            
+            // map関数で値調整
+            float mapVal1 = ofMap(val1, -1, 1, 0, ofGetWidth());
+            float mapVal2 = ofMap(val2, -1, 1, 0, ofGetHeight());
+            cout << "" << mapVal1 << endl;
+            cout << "mapVal2" << mapVal1 << endl;
+            
+            pos.x = mapVal1;
+            pos.y = mapVal2;
+        }
+        
+    }
+
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+     ofSetColor(255);
+     ofDrawCircle(pos.x, pos.y, 10);
+
+}
+
+
+
+```
+
 
 
 
