@@ -14,8 +14,6 @@ OpenSound Control（OSC）とは、電子楽器（特にシンセサイザー）
 
 #### ネットワークアドレスの確認
 
-<br>
-システム環境設定からネットワークアドレスを確認
 <img src="images/network.png" width="600px">
 <br>
 
