@@ -14,13 +14,11 @@ OpenSound Control（OSC）とは、電子楽器（特にシンセサイザー）
 
 #### ネットワークアドレスの確認
 
-<!--
-<img src="images/ipadress.png" width="400px">
--->
+システム環境設定からネットワークアドレスを確認
+<img src="images/network.png" width="400px">
 
 
 ## ofxOscの使い方
-
 
 
 ### OSCの送信側のコード
@@ -290,3 +288,10 @@ void ofApp::draw(){
 
 
 ```
+
+
+# ZIGSIMで連携
+
+
+
+
