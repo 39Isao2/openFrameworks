@@ -293,11 +293,11 @@ void ofApp::draw(){
 # ZIGSIMで連携
 
 ## ZIGSIM設定
-<img src="images/zigsim1.png" width="400px">
-<img src="images/zigsim2.png" width="400px">
+<img src="images/zigsim1.png" width="300px"><img src="images/zigsim2.png" width="300px">
 
 ## tdと連携 (oscin chop を使用)
 <img src="images/zigsim1t.png" width="600px">
+
 ## openFrameworksと連携
 
 ofApp.h
