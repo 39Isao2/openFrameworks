@@ -186,10 +186,62 @@ void ofApp::draw(){
     
     cam.begin();
     
-        mesh.drawWireframe();
+        ofSetColor(255,50);
         
+        // ワイヤーフレーム描画
+        mesh.drawWireframe();
+    
     cam.end();
 }
+```
+
+## ofSpherePrimitiveでカラフルなmeshを作ってみる
+
+<img src="images/cmesh.png" width="400px">
+
+odApp.h
+```
+//--------------------------------------------------------------
+void ofApp::setup(){
+    
+    
+    ofSpherePrimitive sp;
+    sp.set(200, 10);
+    
+    ofBackground(0);
+    //box.setResolution(10);  //数値が大きいほど立方体を構成するメッシュの量が増える
+    
+    // ofBoxPrimitiveからメッシュの情報を取得
+    mesh = sp.getMesh();
+    
+    // 透明度モードonに
+    ofEnableAlphaBlending();
+    
+    
+    
+   //頂点の位置をランダムに取得して再セット
+   for (int i = 0; i < mesh.getVertices().size(); i++) {
+        glm::vec3 pos = mesh.getVertices()[i];
+        pos.x = pos.x * ofRandom(-3.0,3.0);
+        pos.y = pos.y * ofRandom(-3.0,3.0);
+        pos.z = pos.z * ofRandom(-3.0,3.0);
+        mesh.addColor(ofFloatColor(ofRandom(1),ofRandom(1),ofRandom(1), 0.2));
+        mesh.setVertex(i, pos);
+    }
+    
+}
+
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    
+    cam.begin();
+
+        mesh.draw();
+    
+    cam.end();
+}
+
 ```
 
 ## planeオブジェクトのメッシュをいじる
