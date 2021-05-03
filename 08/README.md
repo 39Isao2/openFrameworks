@@ -59,7 +59,7 @@ void ofApp::setup(){
     mesh.addVertex(glm::vec3(100,100,0));
     mesh.addVertex(glm::vec3(100,200,0));
     mesh.addVertex(glm::vec3(200,200,0));
-    mesh.addVertex(glm::vec3(200,100,0));
+    //mesh.addVertex(glm::vec3(200,100,0));
 }
 
 //--------------------------------------------------------------
