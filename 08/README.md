@@ -118,7 +118,7 @@ void ofApp::setup(){
     //頂点の色指定
     mesh.addColor(ofFloatColor(1.0,0.0,0.0));
     mesh.addColor(ofFloatColor(1.0,0.0,0.0));
-    mesh.addColor(ofFloatColor(1.0,0.0,0.0));
+    mesh.addColor(ofFloatColor(0.0,0.0,1.0));
     mesh.addColor(ofFloatColor(0.0,0.0,1.0));
 }
 
