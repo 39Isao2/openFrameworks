@@ -206,6 +206,8 @@ class ofApp : public ofBaseApp{
     float boxSize[NUM];
     ofColor boxCol[NUM];
     
+    ofLight light;
+    
 
     ofEasyCam cam;
     ofVec3f camPos; // カメラの位置
@@ -222,7 +224,7 @@ of.cpp
 void ofApp::setup(){
     
     
-    ofBackground(255);
+    ofBackground(0);
     ofSetFrameRate(60);
     ofEnableDepthTest();
 
@@ -231,8 +233,12 @@ void ofApp::setup(){
     cam.setPosition(camPos);
     //cam.setPosition(camPos);
     
+    light.setPointLight();
+    light.setPosition(0, 0, 0);
+    light.enable();
+    
     // カメラの注意点
-    cam.lookAt(ofVec3f(0,0,0));
+    cam.setTarget(ofVec3f(0,0,0));
     
     // ボックスのポジション
     for (int i=0; i<NUM; i++) {
@@ -259,7 +265,7 @@ void ofApp::update(){
     camPos.y = 1000;
     camPos.z = 1000 * cos(theta * DEG_TO_RAD);
     cam.setPosition(camPos);
-    cam.lookAt(ofVec3f(0,0,0));
+    cam.setTarget(ofVec3f(0,0,0));
     
     
     theta+=0.5;
