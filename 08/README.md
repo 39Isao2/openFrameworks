@@ -181,6 +181,15 @@ void ofApp::setup(){
     }
     
 }
+//--------------------------------------------------------------
+void ofApp::draw(){
+    
+    cam.begin();
+    
+        mesh.drawWireframe();
+        
+    cam.end();
+}
 ```
 
 ## planeオブジェクトのメッシュをいじる
