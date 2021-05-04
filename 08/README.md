@@ -199,6 +199,10 @@ void ofApp::draw(){
 
 <img src="images/cmesh.png" width="400px">
 
+### TouchDesignerに送って光らせて見ました。<br><br>
+<img src="images/tdmesh.png" width="500px">
+<br>
+
 
 odApp.h
 ```
@@ -244,10 +248,6 @@ void ofApp::draw(){
 }
 
 ```
-
-### TouchDesignerに送って光らせて見ました。<br><br>
-<img src="images/tdmesh.png" width="500px">
-<br>
 
 
 
