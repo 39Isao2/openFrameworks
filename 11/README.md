@@ -77,8 +77,9 @@ void ofApp::draw(){
 
 <img src="images/ofParticle.png" width="800px">
 こちらを目指しましょう。<br>
-oFのコードはコピペでいいので(先程のにパーティクルのコードを足しただけ)<br>
-Touch側をいじって見ましょう。
+<br>
+基本はこちらのオペレーターの繋ぎ方
+<img src="images/bloom.png" width="500px">
 
 パーティクルのコード<br>
 
