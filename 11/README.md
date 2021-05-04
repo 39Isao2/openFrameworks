@@ -75,10 +75,10 @@ void ofApp::draw(){
 
 ### oFで作ったパーティクルをTouchに送って発光させてみる。
 
-<img src="images/ofParticle.png" width="800px">
+<img src="images/ofParticle.png" width="500px">
 こちらを目指しましょう。<br>
 <br>
-基本はこちらのオペレーターの繋ぎ方
+基本はこちらのオペレーターの繋ぎ方<br>
 <img src="images/bloom.png" width="500px">
 
 パーティクルのコード<br>
