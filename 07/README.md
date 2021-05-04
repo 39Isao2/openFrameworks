@@ -387,24 +387,12 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    
-
-    
-    // 中視点の向き先
-    if(scene == 0){
-        cam.setTarget(ofVec3f(0,0,0));
-        
-    } else {
-        
         // カメライージングの公式
         // 現在位置+= (目的地 - 現在地) * イージング係数;
         camPos += (targetCamPos - camPos) * camEasing;
+	
         cam.setPosition(camPos);
-        
         cam.setTarget(box[randBoxNum]);
-        
-    }
-    
 
 }
 
@@ -430,7 +418,6 @@ void ofApp::draw(){
 void ofApp::keyPressed(int key){
  
     if (key == 'a'){
-       scene = 1;
        randBoxNum = ofRandom(NUM);
        targetCamPos.set(ofRandom(-1000,1000),ofRandom(-1000,1000),ofRandom(-1000,1000));
     }
