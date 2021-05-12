@@ -53,11 +53,17 @@ ofApp.cpp
 
 void ofApp::setup(){
 
+    // サイズ指定
+    ofSetWindowShape(500, 500);
+    
+    // 黒背景に
+    ofBackground(0);
+    
+    // 円の分割数
+    ofSetCircleResolution(64);
+    
     // ラベルに名前をつける
     output.setName("Main");
-    
-    // 背景黒に
-    ofBackground(0);
 }
 
 void ofApp::update(){
