@@ -355,18 +355,21 @@ void ofApp::update(){
         //受信用のインスタンス変数
         ofxOscMessage msg;
         receiver.getNextMessage(msg);
+	
+	// メッセージ出力
+	cout << msg << endl;
         
         
-        if(msg.getAddress()== "/ZIGSIM/0orl5vTTkYPi3qdN/touch0") {
+	// 注意！ osctest の部分はZIGSIMのUUIDの名前と揃える
+	
+        if(msg.getAddress()== "/ZIGSIM/osctest/touch0") {
             float val1 = msg.getArgAsFloat(0);
             float val2 = msg.getArgAsFloat(1);
-            
+
             // map関数で値調整
             float mapVal1 = ofMap(val1, -1, 1, 0, ofGetWidth());
             float mapVal2 = ofMap(val2, -1, 1, 0, ofGetHeight());
-            cout << "" << mapVal1 << endl;
-            cout << "mapVal2" << mapVal1 << endl;
-            
+
             pos.x = mapVal1;
             pos.y = mapVal2;
         }
