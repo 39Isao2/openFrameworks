@@ -52,8 +52,12 @@ ofApp.cpp
 
 
 void ofApp::setup(){
+
     // ラベルに名前をつける
     output.setName("Main");
+    
+    // 背景黒に
+    ofBackground(0);
 }
 
 void ofApp::update(){
