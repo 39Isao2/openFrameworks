@@ -191,7 +191,7 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofBackground(0);
     
-    // Osc送信のセットアップ
+    // Osc送信のセットアップ   10.1.155.34の部分は自分のマシンのIPアドレスに書き換えてください
     sender.setup("10.1.155.34", PORT);
 }
 void ofApp::update(){
