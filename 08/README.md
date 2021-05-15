@@ -162,6 +162,7 @@ void ofApp::setup(){
     
     ofBoxPrimitive box;
     box.set(200);
+    box.setPosition(0,0,0);
     //box.setResolution(10);  //数値が大きいほど立方体を構成するメッシュの量が増える
     
     // ofBoxPrimitiveからメッシュの情報を取得
