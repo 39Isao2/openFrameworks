@@ -52,14 +52,12 @@ ofApp.cpp
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    //ofBackground();
     ofSetFrameRate(60);
     
     //頂点の座標を指定2
     mesh.addVertex(glm::vec3(100,100,0));
     mesh.addVertex(glm::vec3(100,200,0));
     mesh.addVertex(glm::vec3(200,200,0));
-    //mesh.addVertex(glm::vec3(200,100,0));
 }
 
 //--------------------------------------------------------------
