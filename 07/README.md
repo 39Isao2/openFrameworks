@@ -138,7 +138,7 @@ void ofApp::setup(){
     ofEnableDepthTest();
 
     //カメラの初期値
-    camPos.set(ofVec3f(0, 0, 0));
+    camPos.set(ofVec3f(1000, 10000, 1000));
     cam.setPosition(camPos);
 
 }
@@ -356,9 +356,8 @@ void ofApp::setup(){
     camPos.set(0, +1000, +1000);
     cam.setPosition(camPos);
     
-    // カメラの注意点
+    // カメラの注視点
     camLook.set(0,0,0);
-    //cam.setTarget(camLook);
     cam.setTarget(camLook);
     
     light.setPointLight();
