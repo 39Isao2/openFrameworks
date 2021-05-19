@@ -52,8 +52,6 @@ ofApp.cpp
 //--------------------------------------------------------------
 void ofApp::setup(){
     
-    ofSetFrameRate(60);
-    
     //頂点の座標を指定2
     mesh.addVertex(glm::vec3(100,100,0));
     mesh.addVertex(glm::vec3(100,200,0));
